@@ -1,0 +1,35 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#bc7ee2",
+    "activityBar.activeBorder": "#edd6b1",
+    "activityBar.background": "#bc7ee2",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#edd6b1",
+    "activityBarBadge.foreground": "#15202b",
+    "sash.hoverBorder": "#bc7ee2",
+    "statusBar.background": "#a654d9",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#bc7ee2",
+    "statusBarItem.remoteBackground": "#a654d9",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#a654d9",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#a654d999",
+    "titleBar.inactiveForeground": "#e7e7e799"
+},
+  "peacock.color": "#a654d9",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+  "yaml.schemas": {
+    "file:///home/dev/.vscode/extensions/qovery.vscode-qovery-extension-0.1.2/out/domain/QoverySpec.json": "*.qovery.y*ml",
+    "https://json.schemastore.org/github-workflow.json": "file:///home/dev/source/caprover/one-click-apps/.github/workflows/deploy.yml",
+    "https://json.schemastore.org/yamllint.json": "file:///home/dev/source/caprover/one-click-apps/scripts/deploy.yml"
+  }
+}

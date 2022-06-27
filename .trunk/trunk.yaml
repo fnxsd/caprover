@@ -1,0 +1,15 @@
+version: 0.1
+cli:
+    version: 0.13.2-beta
+lint:
+    enabled:
+        - actionlint@1.6.9
+        - gitleaks@8.3.0
+        - markdownlint@0.31.1
+        - prettier@2.5.1
+    ignore:
+        - linters: [ALL]
+          paths:
+              - dist/**
+              - node_modules/**
+              - .vscode/**

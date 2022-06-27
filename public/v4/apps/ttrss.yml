@@ -1,0 +1,76 @@
+# @format
+
+captainVersion: 4
+services:
+  "$$cap_appname":
+    image: wangqiru/ttrss:$$cap_version
+    environment:
+      PGID: 1000
+      PUID: 1000
+      SELF_URL_PATH: http://$$cap_appname.$$cap_root_domain
+      DB_HOST: srv-captain--$$cap_appname-postgres
+      DB_USER: $$cap_db_user
+      DB_PASS: $$cap_db_pass
+      DB_DATABASE: $$cap_db_database
+      DB_PORT: 5432
+      ENABLE_PLUGINS: auth_internal,fever # auth_internal is required. Plugins enabled here will be enabled for all users as system plugins
+      FEED_LOG_QUIET: true
+    command: sh -c 'sh /wait-for.sh srv-captain--$$cap_appname-postgres:5432 -- php /configure-db.php && exec s6-svscan /etc/s6/'
+    volumes:
+      - $$cap_appname-icons:/var/www/feed-icons/
+    caproverExtra:
+      containerHttpPort: "181"
+    # PostgreSQL
+  $$cap_appname-postgres:
+    image: postgres:$$cap_postgres_version
+    volumes:
+      - $$cap_appname-postgres-data:/var/lib/postgresql/data
+    restart: always
+    environment:
+      POSTGRES_DB: $$cap_db_database
+      POSTGRES_USER: $$cap_db_user
+      POSTGRES_PASSWORD: $$cap_db_pass
+    caproverExtra:
+      notExposeAsWebApp: "true"
+  $$cap_appname-opencc:
+    image: wangqiru/opencc-api-server:latest
+    environment:
+      - NODE_ENV=production
+    restart: always
+    caproverExtra:
+      notExposeAsWebApp: "true"
+  $$cap_appname-mercury:
+    image: wangqiru/mercury-parser-api:latest
+    restart: always
+    caproverExtra:
+      notExposeAsWebApp: "true"
+caproverOneClickApp:
+  variables:
+    - id: $$cap_postgres_version
+      label: Postgres Version
+      defaultValue: 13-alpine
+    - id: $$cap_db_database
+      label: Database name
+      defaultValue: standardnotes
+      description: Nmae of my MySQL db
+    - id: $$cap_db_pass
+      label: MySQL Root password
+      description: "Root password that will be created on MySQL"
+      defaultValue: $$cap_gen_random_hex(16)
+    - id: $$cap_db_user
+      label: Database user
+      description: Database user
+      defaultValue: standardnotes
+      validRegex: "/^([a-zA-Z0-9])+$/"
+  instructions:
+    start: |-
+      TTRSS aims to provide a powerful Dockerized all-in-one solution for https://tt-rss.org/, an open source RSS feed reader and aggregator written in PHP, with enhanced user experience via simplified deployment and a list of curated plugins.
+
+      More details: https://github.com/PrivateBin/PrivateBin
+    end: |-
+      set Mercury Parser API endpoint to `$$cap_appname-mercury:3000` on TTRSS plugin setting page
+      set OpenCC API endpoint to `$$cap_appname-opencc:3000` on TTRSS plugin setting page
+  displayName: PrivateBin
+  isOfficial: false
+  description: A minimalist, open source online pastebin where the server has zero knowledge of pasted data. Data is encrypted/decrypted in the browser using 256 bits AES.
+  documentation: See https://github.com/PrivateBin/docker-nginx-fpm-alpine

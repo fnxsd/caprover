@@ -1,0 +1,25 @@
+name: Validate One Click Apps
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm ci && npm run validate_apps && npm run format
+        env:
+          GITHUB_PERSONAL_TOKEN: ${{secrets.GITHUB_PERSONAL_TOKEN}}
+      - name: Get current date # get the date of the build
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
+      - uses: eikendev/gotify-action@master
+        with:
+          gotify_api_base: ${{ secrets.GOTIFY_BASE_URL }}
+          gotify_app_token: ${{ secrets.GOTIFY_API_KEY }}
+          notification_title: ${{ github.repository_owner }} pushed to ${{ github.repository }}
+          notification_message: ${{ github.ref }} pushed to ${{ github.repository }} on ${{ steps.date.outputs.date }}
