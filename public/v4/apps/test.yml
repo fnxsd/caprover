@@ -1,0 +1,22 @@
+captainVersion: "4"
+caproverOneClickApp:
+  description: ""
+  instructions:
+    start: Install test and start using it.
+    end: Have fun!
+  variables:
+    - id: $$cap_app_version
+      description: Version of test
+      defaultValue: latest
+      label: App Version
+  displayName: test
+  isOfficial: false
+  documentation: ""
+services:
+  $$cap_appname:
+    image: test:$$cap_app_version
+    volumes:
+      - $$cap_appname-data:/data/test
+    environment: []
+    caproverExtra:
+      containerHttpPort: "3000"
