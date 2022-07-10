@@ -45,7 +45,6 @@ caproverOneClickApp:
     - id: $$cap_email_from
       label: Email From Address
       description: Configures the global From header whilst sending emails
-
     - id: $$cap_email_server_user
       label: Email Server User
       defaultValue: ""
