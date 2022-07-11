@@ -53,7 +53,7 @@ services:
     environment:
       GOTIFY_DEFAULTUSER_PASS: $$cap_app_default_password
       GOTIFY_DEFAULTUSER_NAME: $$cap_app_default_user
-      GOTIFY_DATABASE_CONNECTION: "host=srv-captain--$$cap_appname-db port=5432 user=$$cap_dbuser dbname=$$cap_dbname password=$$cap_dbpass"
+      GOTIFY_DATABASE_CONNECTION: "host=srv-captain--$$cap_appname-db port=5432 user=$$cap_dbuser dbname=$$cap_dbname password=$$cap_dbpass sslmode=disable"
       GOTIFY_DATABASE_DIALECT: postgres
       GOTIFY_PASSSTRENGTH: $$cap_app_passstrength
       GOTIFY_REGISTRATION: $$cap_app_registration_enabled
