@@ -8,7 +8,7 @@ services:
       SHIORI_DBMS: postgresql
       SHIORI_PG_USER: $$cap_dbuser
       SHIORI_PG_PASS: $$cap_dbpass
-      SHIORI_PG_DB: $$cap_dbname
+      SHIORI_PG_NAME: $$cap_dbname
       SHIORI_PG_HOST: srv-captain--$$cap_appname-db
       SHIORI_PG_PORT: 5432
     volumes:
@@ -30,18 +30,18 @@ caproverOneClickApp:
   variables:
     - id: $$cap_app_version
       label: App Version
-      defaultValue: "1.5.3"
+      defaultValue: "v1.5.3"
       description: "See https://github.com/go-shiori/shiori/pkgs/container/shiori"
     - id: $$cap_postgres_version
       label: Postgres Version
       defaultValue: "13"
     - id: $$cap_dbname
       label: Database Name
-      defaultValue: "postgres"
+      defaultValue: "shiori"
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_dbuser
       label: Database User
-      defaultValue: "user"
+      defaultValue: "postgres"
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_dbpass
       label: Database Password
