@@ -30,7 +30,7 @@ caproverOneClickApp:
   variables:
     - id: $$cap_app_version
       label: App Version
-      defaultValue: "1.53"
+      defaultValue: "1.5.3"
       description: "See https://github.com/go-shiori/shiori/pkgs/container/shiori"
     - id: $$cap_postgres_version
       label: Postgres Version
