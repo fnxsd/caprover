@@ -1,0 +1,53 @@
+{
+  "name": "@putout/formatter-json",
+  "version": "2.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout formatter output json on end",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-json",
+  "main": "lib/json.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-formatter",
+    "formatter",
+    "json"
+  ],
+  "devDependencies": {
+    "@putout/plugin-remove-unused-variables": "*",
+    "@putout/test": "^4.0.0",
+    "c8": "^7.5.0",
+    "eslint": "^8.0.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^12.0.0",
+    "madrun": "^8.0.1",
+    "simport": "^1.2.0"
+  },
+  "peerDependencies": {
+    "putout": ">=22.5"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

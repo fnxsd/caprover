@@ -1,0 +1,22 @@
+{
+  "name": "mapsome",
+  "description": "find maped element of an array that will satisfy condition of some",
+  "main": "dist/mapsome.js",
+  "authors": [
+    "coderaiser <mnemonic.enemy@gmail.com> (http://coderaiser.github.io/)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "map",
+    "some",
+    "array",
+    "functional",
+    "list"
+  ],
+  "homepage": "https://github.com/coderaiser/mapsome",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test"
+  ]
+}

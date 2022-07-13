@@ -1,0 +1,28 @@
+2019.09.07, v3.0.0
+
+feature:
+- (wraptile) drop support from legacy
+- (package) nyc v14.1.1
+- (package) redrun v7.1.7
+- (package) sinon, sinon-called-with-diff -> @cloudcmd/stub
+- (package) eslint v5.0.0
+- (package) sinon v6.0.0
+
+
+2018.05.03, v2.0.0
+
+feature:
+- (wraptile) add ability to wrap 2 times instead of 3
+- (package) sinon v5.0.3
+- (package) redrun v6.0.0
+- (package) babel-reset-env
+- (package) sinon-called-with-diff v2.0.0
+- (package) sinon v4.0.0
+- (package) coveralls v3.0.0
+- (package) sinon v3.0.0
+- (package) nyc v11.0.2
+- (package) eslint v4.0.0
+- (package) scripts: report
+- (package) add sinon-called-with-diff
+- (travis) add coverage
+

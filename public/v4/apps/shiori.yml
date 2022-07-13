@@ -2,9 +2,10 @@ captainVersion: 4
 
 services:
   $$cap_appname:
-    image: geekgonecrazy/shiori@$$cap_app_version
+    image: ghcr.io/go-shiori/shiori:$$cap_app_version
     environment:
       SHIORI_DIR: /data
+      SHIORI_DBMS: postgresql
       SHIORI_PG_USER: $$cap_dbuser
       SHIORI_PG_PASS: $$cap_dbpass
       SHIORI_PG_DB: $$cap_dbname
@@ -29,8 +30,8 @@ caproverOneClickApp:
   variables:
     - id: $$cap_app_version
       label: App Version
-      defaultValue: "latest"
-      description: "App Version"
+      defaultValue: "1.53"
+      description: "See https://github.com/go-shiori/shiori/pkgs/container/shiori"
     - id: $$cap_postgres_version
       label: Postgres Version
       defaultValue: "13"

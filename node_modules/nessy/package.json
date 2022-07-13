@@ -1,0 +1,53 @@
+{
+  "name": "nessy",
+  "version": "4.0.0",
+  "description": "set value in nested object",
+  "main": "lib/nessy.js",
+  "scripts": {
+    "test": "madrun test",
+    "watcher": "madrun watcher",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/nessy.git"
+  },
+  "nyc": {
+    "exclude": [
+      ".madrun.js",
+      "test"
+    ]
+  },
+  "keywords": [
+    "json",
+    "object",
+    "value",
+    "nested",
+    "set"
+  ],
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (http://coderaiser.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coderaiser/nessy/issues"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "homepage": "https://github.com/coderaiser/nessy",
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "eslint": "^7.12.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^6.0.0",
+    "madrun": "^7.0.4",
+    "nodemon": "^2.0.6",
+    "nyc": "^15.1.0",
+    "putout": "^11.0.2",
+    "supertape": "^2.0.1"
+  },
+  "dependencies": {}
+}

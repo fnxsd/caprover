@@ -1,0 +1,16 @@
+--2022-03-24 03:50:40--  https://github.com/vaemendis/ubooquity-snap/raw/master/icon.png
+Resolving github.com (github.com)... 140.82.121.3
+Connecting to github.com (github.com)|140.82.121.3|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/vaemendis/ubooquity-snap/master/icon.png [following]
+--2022-03-24 03:50:40--  https://raw.githubusercontent.com/vaemendis/ubooquity-snap/master/icon.png
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8001::154, 2606:50c0:8002::154, 2606:50c0:8003::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8001::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 25246 (25K) [image/png]
+Saving to: ‘icon.png’
+
+     0K .......... .......... ....                            100% 6.10M=0.004s
+
+2022-03-24 03:50:40 (6.10 MB/s) - ‘icon.png’ saved [25246/25246]
+
