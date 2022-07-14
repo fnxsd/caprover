@@ -13,11 +13,9 @@ workflows:
             parameters:
               os:
                 - linux
-                - windows
               node_version:
-                - latest
                 - lts
-                - maintenance
+
   dependabot-automerge:
     triggers:
       - schedule:

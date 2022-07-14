@@ -12,39 +12,7 @@
     "file:///home/dev/.vscode/extensions/qovery.vscode-qovery-extension-0.1.2/out/domain/QoverySpec.json": "*.qovery.y*ml",
     "https://json.schemastore.org/github-workflow.json": "file:///home/dev/source/caprover/one-click-apps/.github/workflows/deploy.yml",
     "https://json.schemastore.org/yamllint.json": "file:///home/dev/source/caprover/one-click-apps/scripts/deploy.yml"
-  },
-  "sqltools.connections": [
-    {
-      "previewLimit": 50,
-      "server": "db.tzkvhuzxkaqwkeftyihf.supabase.co",
-      "port": 5432,
-      "driver": "PostgreSQL",
-      "name": "alco",
-      "group": "supabase",
-      "database": "postgres",
-      "username": "postgres",
-      "password": "61324revb408"
-    },
-    {
-      "previewLimit": 50,
-      "server": "localhost",
-      "port": 5432,
-      "askForPassword": true,
-      "driver": "PostgreSQL",
-      "name": "pim",
-      "group": "supabase",
-      "connectString": "postgres://postgres:61324revb408@db.mdvzfmmdnrsqouittuzc.supabase.co:5432/postgres"
-    },
-    {
-      "previewLimit": 50,
-      "server": "localhost",
-      "port": 5432,
-      "askForPassword": true,
-      "driver": "PostgreSQL",
-      "connectString": "postgres://postgres:61324revb408@db.qhdecolfgidmbbakctob.supabase.co:5432/postgres",
-      "name": "python",
-      "group": "supabase"
-    }
+  }
 ],
 "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#bc7ee2",
