@@ -1,0 +1,59 @@
+captainVersion: "4"
+caproverOneClickApp:
+  description: "Coder is an open source platform for creating and managing developer workspaces on your preferred clouds and servers."
+  instructions:
+    start: Install coder and start using it.
+    end: Please enable both https and websockets. You may find your app at http://$$cap_appname.$$cap_root_domain
+  variables:
+    - id: $$cap_app_version
+      description: Version of coder. See https://github.com/coder/coder/pkgs/container/coder
+      defaultValue: latest
+      label: App Version
+    - id: $$cap_dbuser
+      label: Database User
+      defaultValue: "postgres"
+      validRegex: /^([^\s^\/])+$/
+
+    - id: $$cap_dbpass
+      label: Database Password
+      defaultValue: $$cap_gen_random_hex(64)
+      validRegex: /^([^\s^\/])+$/
+  displayName: coder
+  isOfficial: false
+  documentation: "https://coder.com/docs"
+services:
+  $$cap_appname:
+    caproverExtra:
+      containerHttpPort: "7080"
+    # This MUST be stable for our documentation and
+    # other automations.
+    image: ghcr.io/coder/coder:$$cap_app_version
+    environment:
+      CODER_PG_CONNECTION_URL: "postgresql://$$cap_dbuser:$$cap_dbpass@srv-captain--$$cap_appname-db/coder?sslmode=disable"
+      # You'll need to set CODER_ACCESS_URL to an IP or domain
+      # that workspaces can reach. This cannot be localhost
+      # or 127.0.0.1 for non-Docker templates!
+      CODER_ADDRESS: "0.0.0.0:7080"
+      CODER_ACCESS_URL: https://$$cap_appname.$$cap_root_domain
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      database:
+        condition: service_healthy
+  $$cap_appname-db:
+    image: "postgres:14.2"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: $$cap_dbuser
+      POSTGRES_PASSWORD: $$cap_dbpass # The PostgreSQL password (useful to connect to the database)
+      POSTGRES_DB: coder # The PostgreSQL default database (automatically created at first launch)
+    volumes:
+      - coder_data:/var/lib/postgresql/data # Use "docker volume rm coder_coder_data" to reset Coder
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$cap_dbuser -d coder"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    caproverExtra:
+      notExposeAsWebApp: "true"
