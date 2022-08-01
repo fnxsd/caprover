@@ -56,7 +56,7 @@
     "@types/mkdirp": "1.0.2",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.9.4",
-    "@types/prettier": "^2.4.3",
+    "@types/prettier": "^2.6.4",
     "@types/rimraf": "3.0.2",
     "@types/semver": "^7.3.9",
     "@types/yaml": "^1.9.7",
@@ -65,7 +65,7 @@
     "globby": "^11",
     "npm-check-updates": "12.2.1",
     "npm-run-all": "4.1.5",
-    "prettier": "^2.5.1",
+    "prettier": "^2.7.1",
     "shx": "^0.3.3",
     "ts-node": "^10.2.1",
     "tslib": "^2.3.1"
