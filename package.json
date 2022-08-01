@@ -58,7 +58,7 @@
     "@types/node": "^16.9.4",
     "@types/prettier": "^2.4.3",
     "@types/rimraf": "3.0.2",
-    "@types/semver": "^7.3.9",
+    "@types/semver": "^7.3.10",
     "@types/yaml": "^1.9.7",
     "@types/yargs": "17.0.10",
     "caprover": "2.2.3",
