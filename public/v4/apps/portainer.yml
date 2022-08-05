@@ -28,7 +28,7 @@ caproverOneClickApp:
       label: Portainer Agent Version
       defaultValue: 2.14.2
       description: Check out their Docker page for the valid tags https://hub.docker.com/r/portainer/agent/tags
-      validRegex: /^([^\s^\/])+$/      
+      validRegex: /^([^\s^\/])+$/
   instructions:
     start: >-
       Portainer is a lightweight management UI which allows you to easily manage your Docker host or Swarm cluster. 

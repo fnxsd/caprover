@@ -1,0 +1,22 @@
+captainVersion: "4"
+caproverOneClickApp:
+  description: "Install portainer-agent and start using it"
+  instructions:
+    start: Install portainer-agent and start using it.
+    end: Have fun!
+  variables:
+    - id: $$cap_agent_version
+      label: Portainer Agent Version
+      defaultValue: 2.14.2
+      description: Check out their Docker page for the valid tags https://hub.docker.com/r/portainer/agent/tags
+      validRegex: /^([^\s^\/])+$/
+  displayName: portainer-agent
+  isOfficial: false
+  documentation: "https://hub.docker.com/r/portainer/agent"
+services:
+  $$cap_appname:
+    image: portainer/agent:$$cap_agent_version
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+    restart: always
