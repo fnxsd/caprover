@@ -262,6 +262,10 @@ services:
   $$cap_appname-db:
     image: mysql:$$cap_mysql_version
     environment:
+      MYSQL_DATABASE: $$cap_db_database
+      MYSQL_USER: $$cap_db_user
+      MYSQL_PASSWORD: $$cap_db_pass
+      MYSQL_ROOT_PASSWORD: $$cap_db_pass
       NEW_RELIC_ENABLED: $$cap_new_relic_enabled
       NEW_RELIC_NO_CONFIG_FILE: true
       NEW_RELIC_DISTRIBUTED_TRACING_ENABLED: $$cap_new_relic_distributed_tracing_enabled
@@ -270,11 +274,6 @@ services:
       NEW_RELIC_APP_NAME: $$cap_new_relic_app_name
       NEW_RELIC_LICENSE_KEY: $$cap_new_relic_license_key
       NEW_RELIC_LABELS: $$cap_new_relic_labels
-
-      MYSQL_DATABASE: $$cap_db_database
-      MYSQL_USER: $$cap_db_user
-      MYSQL_PASSWORD: $$cap_db_pass
-      MYSQL_ROOT_PASSWORD: $$cap_db_pass
     restart: unless-stopped
     command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci
     volumes:
