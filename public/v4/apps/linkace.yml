@@ -81,15 +81,16 @@ caproverOneClickApp:
   documentation: "See https://www.linkace.org/docs/"
 services:
   $$cap_appname-db:
-    documentation: Taken from https://hub.docker.com/_/postgres
-    image: postgres:$$cap_postgres_version
-    volumes:
-      - $$cap_appname-db-data:/var/lib/postgresql/data
-    restart: always
+    image: mariadb:10.7
+    restart: unless-stopped
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
     environment:
-      POSTGRES_PASSWORD: $$cap_db_pass
-      POSTGRES_DB: linkace
-      POSTGRES_USER: $$cap_db_user
+      - MYSQL_ROOT_PASSWORD=$$cap_db_pass
+      - MYSQL_USER=$$cap_db_user
+      - MYSQL_PASSWORD=$$cap_db_pass
+      - MYSQL_DATABASE=linkace
+    volumes:
+      - $$cap_appname-db:/var/lib/mysql
     caproverExtra:
       notExposeAsWebApp: "true"
     # Cache
@@ -113,10 +114,11 @@ services:
       REDIS_HOST: srv-captain--$$cap_appname-redis
       REDIS_PORT: 6379
       DB_HOST: srv-captain--$$cap_appname-db
-      DB_PORT: 5432
+      DB_PORT: 3306
       DB_USER: $$cap_db_user
       DB_PASS: $$cap_db_pass
       DB_NAME: linkace
+      DB_CONNECTION: mysql
       APP_KEY: $$cap_app_key
       ## Mail configuration
       MAIL_FROM_ADDRESS: $$cap_email_from
