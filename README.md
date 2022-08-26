@@ -1,5 +1,6 @@
 # Repo for CapRover One Click Apps
 
+<!-- trunk-ignore(markdownlint/MD025) -->
 # Repo for CapRover One Click Apps
 
 ## How to create a one-click app (as of v1.8.0)
@@ -37,11 +38,7 @@ caproverOneClickApp:
     documentation: This docker-compose is taken from example.com
 ```
 
-<<<<<<< HEAD
 ### Variables
-=======
-## Variables
->>>>>>> 7a776a17d5c9835210c9927e2a13170c12ed4e2f
 
 - Variables are prefixed with `$$cap`
 - Variables can be anywhere in the content and they will be replaced by what user enters
@@ -49,11 +46,7 @@ caproverOneClickApp:
 - Each custom variable must have `id`, `label`. They could also have `defaultValue`, `validRegex`, `description`.
 - IMPORTANT: by default, fields are not required to be filled. If validRegex is not set, the field can be set as empty and ignored by the user.
 
-<<<<<<< HEAD
 ### Services
-=======
-## Services
->>>>>>> 7a776a17d5c9835210c9927e2a13170c12ed4e2f
 
 - Other than `image`, `environment`, `ports`, `volumes`, `depends_on`, and `hostname`, other parameters are currently being ignored by CapRover. If you need a particular parameter, please file an issue, and we'll add it to the respected list.
 - Services have a special subsection specific to CapRover called `caproverExtra` which contains service specific parameters that are only available via CapRover and not docker compose. Currently this field can take the following variables:

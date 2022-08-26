@@ -1,6 +1,6 @@
 {
   "name": "one-click-apps",
-  "version": "1.1.6c",
+  "version": "1.1.7",
   "description": "One Click App Repository for CapRover",
   "scripts": {
     "inst": "ncu -u && typesync && pnpm i && pettier -w ./package.json",

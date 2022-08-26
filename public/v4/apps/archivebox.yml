@@ -3,24 +3,42 @@
 captainVersion: 4
 services:
   $$cap_appname:
-    documentation: Taken from https://docs.archivebox.io/en/latest/Docker.html and https://docs.archivebox.io/en/latest/Configuration.html?highlight=Configuration#configuration
     volumes:
       - $$cap_appname-data:/data
     environment:
       ALLOWED_HOSTS: "*"
       MEDIA_MAX_SIZE: $$cap_max_size_in_mo
+      SEARCH_BACKEND_ENGINE: sonic
+      SEARCH_BACKEND_HOST: srv-captain--$$cap_appname-sonic
+      SEARCH_BACKEND_PASSWORD: $$cap_sonic_search_password
     restart: always
+    image: archivebox/archivebox:$$cap_archivebox_version
+    command: server --quick-init 0.0.0.0:8000
     caproverExtra:
-      dockerfileLines:
-        - FROM archivebox/archivebox:$$cap_archivebox_version
-        - CMD ["server", "--quick-init", "0.0.0.0:8000"]
       containerHttpPort: "8000"
+  $$cap_appname-sonic:
+    image: valeriansaliou/sonic:v1.3.0
+    environment:
+        SEARCH_BACKEND_PASSWORD: $$cap_sonic_search_password
+    volumes:
+        - $$cap_appname-sonic-cfg:/etc/sonic.cfg
+        - $$cap_appname-sonic-data:/var/lib/sonic/store  
 caproverOneClickApp:
   variables:
     - id: $$cap_archivebox_version
       label: archivebox Version
       defaultValue: sha-5940dd6
       description: Check out their Docker page for the valid tags https://hub.docker.com/r/archivebox/archivebox/tags
+      validRegex: /^([^\s^\/])+$/
+    - id: $$cap_sonic_version
+      label: sonic Version
+      defaultValue: v1.3.5
+      description: Check out their Docker page for the valid tags https://hub.docker.com/r/valeriansaliou/sonic/tags
+      validRegex: /^([^\s^\/])+$/
+    - id: $$cap_sonic_secret_password
+      label: sonic Secret Password
+      defaultValue: $$cap_gen_random_hex(16)
+      description: The password for the Sonic search backend
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_max_size_in_mo
       label: Media max size
@@ -39,4 +57,4 @@ caproverOneClickApp:
       Once the super admin is setted you can add other via the web ui.
   displayName: ArchiveBox
   isOfficial: false
-  description: Open-source self-hosted web archiving.
+  description: Open-source self-hosted web archiving. Taken from https://docs.archivebox.io/en/latest/Docker.html and https://docs.archivebox.io/en/latest/Configuration.html?highlight=Configuration#configuration

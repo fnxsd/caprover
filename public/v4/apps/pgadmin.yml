@@ -30,6 +30,6 @@ caproverOneClickApp:
       Aaaand you're done! 😄
       Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: pgAdmin4
-  isOfficial: true
+  isOfficial: false
   description: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL.
   documentation: https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html
