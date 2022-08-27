@@ -10,38 +10,38 @@ services:
       - "$$cap_appname-data:/datastore"
     caproverExtra:
       containerHttpPort: "5000"
-    $$cap_appname-webdriver:
-      image: selenium/standalone-chrome-debug:$$cap_selenium_version
-      environment:
-        VNC_NO_PASSWORD: 1
-        SCREEN_WIDTH: $$cap_screen_width
-        SCREEN_HEIGHT: $$cap_screen_height
-        SCREEN_DEPTH: $$cap_screen_depth
-      volumes:
-        # Workaround to avoid the browser crashing inside a docker container
-        # See https://github.com/SeleniumHQ/docker-selenium#quick-start
-        - /dev/shm:/dev/shm
-      restart: unless-stopped
-      caproverExtra:
-        notExposeAsWebApp: "true"
-      # Used for fetching pages via Playwright+Chrome where you need Javascript support.
+  $$cap_appname-webdriver:
+    image: selenium/standalone-chrome-debug:$$cap_selenium_version
+    environment:
+      VNC_NO_PASSWORD: 1
+      SCREEN_WIDTH: $$cap_screen_width
+      SCREEN_HEIGHT: $$cap_screen_height
+      SCREEN_DEPTH: $$cap_screen_depth
+    volumes:
+      # Workaround to avoid the browser crashing inside a docker container
+      # See https://github.com/SeleniumHQ/docker-selenium#quick-start
+      - /dev/shm:/dev/shm
+    restart: unless-stopped
+    caproverExtra:
+      notExposeAsWebApp: "true"
+    # Used for fetching pages via Playwright+Chrome where you need Javascript support.
 
-    $$cap_appname-playwright:
-      image: browserless/chrome:$$cap_playwright_version
-      restart: unless-stopped
-      environment:
-        SCREEN_WIDTH: $$cap_screen_width
-        SCREEN_HEIGHT: $$cap_screen_height
-        SCREEN_DEPTH: $$cap_screen_depth
-        ENABLE_DEBUGGER: false
-        PREBOOT_CHROME: true
-        CONNECTION_TIMEOUT: 300000
-        MAX_CONCURRENT_SESSIONS: 10
-        CHROME_REFRESH_TIME: 600000
-        DEFAULT_BLOCK_ADS: $$cap_block_ads
-        DEFAULT_STEALTH: $$cap_stealth
-      caproverExtra:
-        notExposeAsWebApp: "true"
+  $$cap_appname-playwright:
+    image: browserless/chrome:$$cap_playwright_version
+    restart: unless-stopped
+    environment:
+      SCREEN_WIDTH: $$cap_screen_width
+      SCREEN_HEIGHT: $$cap_screen_height
+      SCREEN_DEPTH: $$cap_screen_depth
+      ENABLE_DEBUGGER: false
+      PREBOOT_CHROME: true
+      CONNECTION_TIMEOUT: 300000
+      MAX_CONCURRENT_SESSIONS: 10
+      CHROME_REFRESH_TIME: 600000
+      DEFAULT_BLOCK_ADS: $$cap_block_ads
+      DEFAULT_STEALTH: $$cap_stealth
+    caproverExtra:
+      notExposeAsWebApp: "true"
 caproverOneClickApp:
   variables:
     - id: $$cap_version
