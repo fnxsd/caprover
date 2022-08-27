@@ -19,10 +19,10 @@ services:
   $$cap_appname-sonic:
     image: valeriansaliou/sonic:v1.3.0
     environment:
-        SEARCH_BACKEND_PASSWORD: $$cap_sonic_search_password
+      SEARCH_BACKEND_PASSWORD: $$cap_sonic_search_password
     volumes:
-        - $$cap_appname-sonic-cfg:/etc/sonic.cfg
-        - $$cap_appname-sonic-data:/var/lib/sonic/store  
+      - $$cap_appname-sonic-cfg:/etc/sonic.cfg
+      - $$cap_appname-sonic-data:/var/lib/sonic/store
 caproverOneClickApp:
   variables:
     - id: $$cap_archivebox_version
