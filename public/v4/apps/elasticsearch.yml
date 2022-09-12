@@ -1,15 +1,4 @@
 captainVersion: 4
-services:
-  $$cap_appname:
-    image: docker.elastic.co/elasticsearch/elasticsearch:$$cap_elasticsearch_version
-    volumes:
-      - $$cap_appname-elasticsearch-data:/usr/share/elasticsearch/data
-    restart: always
-    environment:
-      ES_JAVA_OPTS: "-Xms$$cap_elasticsearch_heap_size -Xmx$$cap_elasticsearch_heap_size"
-      discovery.type: $$cap_elasticsearch_discovery_type
-    caproverExtra:
-      containerHttpPort: $$cap_container_port
 caproverOneClickApp:
   variables:
     - id: $$cap_elasticsearch_version
@@ -32,3 +21,15 @@ caproverOneClickApp:
   isOfficial: false
   description: Elasticsearch is a search engine based on the Lucene library
   documentation: Look at https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html for further assistance using Elasticsearch with docker.
+
+services:
+  $$cap_appname:
+    image: docker.elastic.co/elasticsearch/elasticsearch:$$cap_elasticsearch_version
+    volumes:
+      - $$cap_appname-elasticsearch-data:/usr/share/elasticsearch/data
+    restart: always
+    environment:
+      ES_JAVA_OPTS: "-Xms$$cap_elasticsearch_heap_size -Xmx$$cap_elasticsearch_heap_size"
+      discovery.type: $$cap_elasticsearch_discovery_type
+    caproverExtra:
+      containerHttpPort: $$cap_container_port

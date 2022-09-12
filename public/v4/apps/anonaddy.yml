@@ -13,6 +13,14 @@ caproverOneClickApp:
       description: Password to connect to the database
       defaultValue: $$cap_gen_random_hex(16)
       id: $$cap_DB_PASS
+    - id: $$cap_app_key
+      description: App key for anonaddy. See https://hub.docker.com/r/anonaddy/anonaddy/tags for valid versions.
+      defaultValue: latest
+      label: App Key
+    - id: $$cap_app_secret
+      description: App secret for anonaddy. See https://hub.docker.com/r/anonaddy/anonaddy/tags for valid versions.
+      defaultValue: latest
+      label: App Secret
   displayName: anonaddy
   isOfficial: false
   documentation: "https://anonaddy.com/self-hosting/"
@@ -22,11 +30,14 @@ services:
     volumes:
       - $$cap_appname-data:/data/
     environment:
-      - "DB_HOST=srv-captain--$$cap_appname-db"
-      - "DB_DATABASE=anonaddy"
-      - "DB_USERNAME=anonaddy"
-      - "DB_PASSWORD=${MYSQL_PASSWORD}"
-      - "REDIS_HOST=redis"
+      DB_HOST: srv-captain--$$cap_appname-db
+      DB_DATABASE: anonaddy
+      DB_USERNAME: anonaddy
+      DB_PASSWORD: $$cap_DB_PASS
+      REDIS_HOST: srv-captain--$$cap_appname-redis
+      APP_KEY: $$cap_app_key
+      APP_SECRET: $$cap_app_secret
+      ANONADDY_DOMAIN:  $$cap_appname.$$cap_root_domain
     caproverExtra:
       containerHttpPort: "8000"
   $$cap_appname-db:
@@ -37,12 +48,12 @@ services:
       - "--character-set-server=utf8mb4"
       - "--collation-server=utf8mb4_unicode_ci"
     volumes:
-      - "./db:/var/lib/mysql"
+      - "$$cap_appname-db:/var/lib/mysql"
     environment:
-      - "MYSQL_ALLOW_EMPTY_PASSWORD=yes"
-      - "MYSQL_DATABASE=anonaddy"
-      - "MYSQL_USER=anonaddy"
-      - MYSQL_PASSWORD=$$cap_DB_PASS
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_DATABASE: anonaddy
+      MYSQL_USER: anonaddy
+      MYSQL_PASSWORD: $$cap_DB_PASS
     restart: always
   $$cap_appname-redis:
     image: redis:7

@@ -1,0 +1,75 @@
+captainVersion: "4"
+caproverOneClickApp:
+  description: "SpiceDB: Open source permissions database inspired by Google Zanzibar "
+  instructions:
+    start: Installs spiceDB together with MySQL as datastore
+    end: Have fun!
+  variables:
+    - id: $$cap_app_version
+      description: Version of spicedb
+      defaultValue: v1.11.0
+      label: App Version of spicedb. See https://hub.docker.com/r/authzed/spicedb/tags for valid versions.
+    - id: $$cap_mysql_version
+      description: Version of MySQL
+      defaultValue: 8.0.30
+      label: Version of MySQL. See https://hub.docker.com/_/mysql/tags for valid versions.
+    - id: $$cap_grpc_preshared_key
+      description: Preshared key for gRPC
+      defaultValue: $$cap_gen_random_hex(32)
+      label: Preshared key for gRPC
+    - id: $$cap_mysql_password
+      description: Password to connect to the database
+      defaultValue: $$cap_gen_random_hex(16)
+      label: Database Password
+    - id: $$cap_spicedb_port_9090
+      description: Port for spicedb
+      defaultValue: "9090"
+      label: Port for spicedb
+    - id: $$cap_spicedb_port_8080
+      description: Port for spicedb
+      defaultValue: "8080"
+      label: Port for spicedb
+    - id: $$cap_spicedb_port_50051
+      description: Port for spicedb
+      defaultValue: "50051"
+      label: Port for spicedb
+  displayName: spicedb
+  isOfficial: false
+  documentation: "https://docs.authzed.com/spicedb/"
+services:
+  $$cap_appname-spicedb:
+    restart: "always"
+    ports:
+      - "$$cap_spicedb_port_8080:8080"
+      - "$$cap_spicedb_port_9090:9090"
+      - "$$cap_spicedb_port_50051:50051"
+    environment:
+      SPICEDB_GRPC_PRESHARED_KEY: foobar
+      SPICEDB_DATASTORE_ENGINE: mysql
+      SPICEDB_DATASTORE_CONN_URI: root:$$cap_mysql_password@tcp(srv-captain--$$cap_appname-database:3306)/spicedb?parseTime=true
+    depends_on:
+      - "$$cap_appname-migrate"
+    caproverExtra:
+      notExposeAsWebApp: true
+      dockerfileLines:
+        - "FROM authzed/spicedb:$$cap_app_version"
+        - 'CMD ["serve"]'
+  $$cap_appname-migrate:
+    restart: "on-failure"
+    environment:
+      SPICEDB_DATASTORE_ENGINE: mysql
+      SPICEDB_DATASTORE_CONN_URI: root:$$cap_mysql_password@tcp(srv-captain--$$cap_appname-database:3306)/spicedb?parseTime=true
+    depends_on:
+      - "$$cap_appname-database"
+    caproverExtra:
+      notExposeAsWebApp: true
+      dockerfileLines:
+        - "FROM authzed/spicedb:$$cap_app_version"
+        - 'CMD ["migrate","head"]'
+  $$cap_appname-database:
+    image: "mysql:$$cap_mysql_version"
+    environment:
+      MYSQL_ROOT_PASSWORD: $$cap_mysql_password
+      MYSQL_DATABASE: spicedb
+    caproverExtra:
+      notExposeAsWebApp: true

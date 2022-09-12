@@ -9,6 +9,7 @@ services:
     environment:
       APP_URL: http://$$cap_appname.$$cap_root_domain
       TZ: $$cap_timezone
+      OAUTHLIB_RELAX_TOKEN_SCOPE: 1
     volumes:
       - $$cap_appname-config:/config
       - $$cap_appname-books:/books
