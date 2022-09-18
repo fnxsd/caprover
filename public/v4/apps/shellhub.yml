@@ -64,8 +64,8 @@ services:
       - "${SHELLHUB_SSH_PORT}:2222"
     secrets:
       - ssh_private_key
-    networks:
-      - shellhub
+    caproverExtra:
+      notExposeAsWebApp: "true"
   api:
     image: shellhubio/api:${SHELLHUB_VERSION}
     restart: unless-stopped
@@ -90,8 +90,8 @@ services:
     secrets:
       - api_private_key
       - api_public_key
-    networks:
-      - shellhub
+    caproverExtra:
+      notExposeAsWebApp: "true"
   ui:
     image: shellhubio/ui:${SHELLHUB_VERSION}
     restart: unless-stopped
@@ -102,8 +102,8 @@ services:
       - SHELLHUB_CLOUD=${SHELLHUB_CLOUD}
     depends_on:
       - api
-    networks:
-      - shellhub
+    caproverExtra:
+      notExposeAsWebApp: "true"
   gateway:
     image: shellhubio/gateway:${SHELLHUB_VERSION}
     restart: unless-stopped
@@ -116,8 +116,8 @@ services:
     depends_on:
       - api
       - ui
-    networks:
-      - shellhub
+    caproverExtra:
+      notExposeAsWebApp: "true"
   cli:
     image: shellhubio/cli:${SHELLHUB_VERSION}
     entrypoint: /bin/sleep infinity
@@ -127,8 +127,8 @@ services:
     depends_on:
       - api
       - mongo
-    networks:
-      - shellhub
+    caproverExtra:
+      notExposeAsWebApp: "true"
   mongo:
     image: mongo:4.4.8
     restart: unless-stopped
@@ -137,8 +137,8 @@ services:
       interval: 30s
       start_period: 10s
     command: ["--replSet", "rs", "--bind_ip_all"]
-    networks:
-      - shellhub
+    caproverExtra:
+      notExposeAsWebApp: "true"
   scheduler:
     image: mcuadros/ofelia:v0.3.4
     depends_on:

@@ -1,0 +1,27 @@
+captainVersion: "4"
+caproverOneClickApp:
+  description: "Open source API development ecosystem"
+  instructions:
+    start: Install hoppscotch and start using it.
+    end: You probably should add some kind of authentication to your deployment. At least the basic auth offered by CapRover. Also, you should activate websocket support in the settings.
+  variables:
+    - id: $$cap_app_version
+      description: Version of hoppscotch
+      defaultValue: latest
+      label: App Version to be deploy. Check https://hub.docker.com/r/hoppscotch/hoppscotch/tags for available versions.
+    - id: $$cap_timezone
+      description: Timezone
+      defaultValue: Europe/Berlin
+      label: Timezone
+  displayName: hoppscotch
+  isOfficial: false
+  documentation: "https://github.com/hoppscotch/hoppscotch/wiki"
+services:
+  $$cap_appname:
+    image: hoppscotch:$$cap_app_version
+    volumes:
+      - $$cap_appname-data:/app
+    environment:
+      TZ: $$cap_timezone
+    caproverExtra:
+      containerHttpPort: "3000"

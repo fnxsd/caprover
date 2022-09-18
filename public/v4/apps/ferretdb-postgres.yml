@@ -27,7 +27,7 @@ services:
       ]
 
   $$cap_appname-ferretdb:
-    image: ghcr.io/ferretdb/ferretdb:latest
+    image: ghcr.io/ferretdb/ferretdb:$$cap_ferretdb_version
     container_name: ferretdb
     depends_on:
       - $$cap_appname-postgres
@@ -38,18 +38,23 @@ services:
         "-postgresql-url=postgres://user:$$cap_postgres_password@srv-captain--$$cap_appname-postgres:5432/ferretdb"
       ]
     caproverExtra:
-      containerHttpPort: "27017"
+      notExposeAsWebApp: "true"
 caproverOneClickApp:
   variables:
     - id: $$cap_postgres_version
       label: PostgreSQL Version
-      defaultValue: "14"
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/postgres/tags/
+      defaultValue: "13"
+      description: Check out their Docker page for the valid tags https://github.com/ferretdb/FerretDB/pkgs/container/ferretdb
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_postgres_password
       label: PostgreSQL password
       description: Only use alphanumeric chars.
       validRegex: /^([a-zA-Z0-9])+$/
+    - id: $$cap_ferretdb_version
+      label: FerretDB Version
+      defaultValue: "0.5.3"
+      description: Check out their Docker page for the valid tags https://hub.docker.com/r/ghcr.io/ferretdb/ferretdb/tags
+      validRegex: /^([^\s^\/])+$/
 
   displayName: FeerretDB -postgresql
   isOfficial: false
