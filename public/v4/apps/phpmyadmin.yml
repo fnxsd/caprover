@@ -12,6 +12,8 @@ services:
       PMA_QUERYHISTORYDB: $$cap_pma_queryhistorydb
       PMA_QUERYHISTORYMAX: $$cap_pma_queryhistorymax
       MAX_EXECUTION_TIME: $$cap_max_execution_time
+      PMA_HOST: $$cap_appname.$$cap_root_domain
+      PMA_ABSOLUTE_URI: https://$$cap_appname.$$cap_root_domain
     caproverExtra:
       containerHttpPort: "80"
 caproverOneClickApp:
@@ -44,15 +46,30 @@ caproverOneClickApp:
     - id: $$cap_pma_version
       label: PHP My Admin Version Tag
       description: Check out their Docker page for the valid tags https://hub.docker.com/r/phpmyadmin/phpmyadmin/tags/
-      defaultValue: 5.0.2
+      defaultValue: 5.2.0
       validRegex: /^([^\s^\/])+$/
+    - id: $$cap_pma_user
+      label: phpMyAdmin user
+      description: phpMyAdmin user to connect to
+      defaultValue: admin
+      validRegex: /^([^\s^\/])+$/
+    - id: $$cap_pma_password
+      label: phpMyAdmin password
+      description: phpMyAdmin password to connect to
+      defaultValue: $$cap_gen_random_hex(12)
+      validRegex: /^([^\s^\/])+$/
+    - id: $$cap_max_execution_time
+      label: PHP max execution time
+      description: Maximum execution time of each script, in seconds
+      defaultValue: 600
+      validRegex: /^([0-9]*)$/
   instructions:
     start: >-
       PhpMyAdmin is the most popular web interface for MySQL & MariaDB. Simply install PhpMyAdmin and then select what database you want to connect to.
 
       Enter your PhpMyAdmin Configuration parameters and click on next. It will take about a minute for the process to finish.
     end: >-
-      PhpMyAdmin is deployed and available as $$cap_appname. You can access it at http://$$cap_appname.$$cap_root_domain.
+      PhpMyAdmin is deployed and available as $$cap_appname. Please enable https before you can access it at https://$$cap_appname.$$cap_root_domain. Also, it is recommended to add basic authentication to this app.
   displayName: phpMyAdmin
   isOfficial: false
   description: phpMyAdmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB.
