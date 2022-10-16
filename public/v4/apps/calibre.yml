@@ -31,4 +31,3 @@ services:
       - "8081:8081"
     caproverExtra:
       containerHttpPort: "8080"
-  

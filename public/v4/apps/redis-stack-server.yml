@@ -34,7 +34,7 @@ caproverOneClickApp:
       description: Additional arguments for redisbloom
       defaultValue: ""
       label: Redisbloom Args
-    - id: $$cap_redisjson_args  
+    - id: $$cap_redisjson_args
       description: Additional arguments for redisjson
       defaultValue: ""
       label: Redisjson Args

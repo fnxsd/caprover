@@ -37,7 +37,7 @@ services:
       REDIS_HOST: srv-captain--$$cap_appname-redis
       APP_KEY: $$cap_app_key
       APP_SECRET: $$cap_app_secret
-      ANONADDY_DOMAIN:  $$cap_appname.$$cap_root_domain
+      ANONADDY_DOMAIN: $$cap_appname.$$cap_root_domain
     caproverExtra:
       containerHttpPort: "8000"
   $$cap_appname-db:

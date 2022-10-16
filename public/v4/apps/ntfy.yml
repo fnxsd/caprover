@@ -1,6 +1,6 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: ""
+  description: "ntfy is a simple HTTP-based pub-sub notification service. It allows you to send notifications to your phone or desktop via scripts from any computer, entirely without signup, cost or setup."
   instructions:
     start: Install ntfy and start using it.
     end: Have fun!
@@ -30,7 +30,7 @@ caproverOneClickApp:
       description: Mail server port
   displayName: ntfy
   isOfficial: false
-  documentation: ""
+  documentation: "https://ntfy.sh/docs/"
 services:
   $$cap_appname:
     image: binwiederhier/ntfy:$$cap_app_version
