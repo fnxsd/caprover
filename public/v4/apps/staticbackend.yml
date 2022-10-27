@@ -1,0 +1,86 @@
+captainVersion: "4"
+caproverOneClickApp:
+  description: "StaticBackend is the performant and simple self-hosted backend API for your web and mobile apps. We've got your common backend building blocks covered. It's free and open source."
+  instructions:
+    start: Install staticbackend and start using it.
+    end: Have fun!
+  variables:
+    - id: $$cap_app_version
+      description: Version of staticbackend
+      defaultValue: latest
+      label: App Version
+    - id: $$cap_app_env
+      description: App environment
+      defaultValue: dev
+      label: App Environment
+      validRegex: "/^(dev|prod)$/"
+    - id: $$cap_app_secret
+      description: App secret
+      defaultValue: $$cap_gen_random_hex(32)
+      label: App Secret
+    - id: $$cap_app_jwt_secret
+      description: App JWT secret
+      defaultValue: $$cap_gen_random_hex(32)
+      label: App JWT Secret
+    - id: $$cap_app_email_from_name
+      description: App email from name
+      defaultValue: StaticBackend
+      label: App Email From Name
+    - id: $$cap_app_email_from_address
+      description: App email from address
+      defaultValue: you@domain.com
+      label: App Email From Address
+
+    - id: $$cap_postgres_version
+      label: Postgres (database) version
+      defaultValue: "14"
+      description: Check out their Docker page for the valid tags https://hub.docker.com/_/postgres?tab=tags
+    - id: $$cap_db_db
+      label: database name
+      defaultValue: authentik
+      description: Name of the database.
+    - id: $$cap_db_pass
+      label: database password
+      defaultValue: $$cap_gen_random_hex(16)
+      description: Password for the database user and root using mysql.
+      validRegex: /.{1,}/
+  displayName: staticbackend
+  isOfficial: false
+  documentation: "https://staticbackend.com/getting-started"
+services:
+  $$cap_appname:
+    image: staticbackend:$$cap_app_version
+    volumes:
+      - $$cap_appname-data:/data/staticbackend
+    environment:
+      APP_ENV: dev
+      APP_SECRET: a-very-long-key-should-be-32long
+      APP_URL: http://localhost:8099
+      DATABASE_URL: "host=srv-captain--$$cap_appname-db user=$$cap_db_user password=$$cap_db_pass dbname=$$cap_db_db sslmode=disable"
+      DATA_STORE: pg
+      JWT_SECRET: $$cap_app_jwt_secret
+      MAIL_PROVIDER: dev
+      STORAGE_PROVIDER: local
+      FROM_EMAIL: $$cap_app_email_from_address
+      FROM_NAME: $$cap_app_email_from_name
+      REDIS_HOST: srv-captain--$$cap_appname-redis:6379
+      REDIS_PASSWORD:
+      LOCAL_STORAGE_URL: http://localhost:8099
+    caproverExtra:
+      containerHttpPort: "8099"
+  $$cap_appname-db:
+    documentation: Taken from https://hub.docker.com/_/postgres
+    image: postgres:$$cap_postgres_version
+    volumes:
+      - $$cap_appname-db-data:/var/lib/postgresql/data
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: $$cap_db_pass
+      POSTGRES_DB: $$cap_db_db
+      POSTGRES_USER: $$cap_db_user
+    caproverExtra:
+      notExposeAsWebApp: "true"
+  $$cap_appname-redis:
+    image: redis:7
+    volumes:
+      - $$cap_appname-redis:/data
