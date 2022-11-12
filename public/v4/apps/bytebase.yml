@@ -1,6 +1,6 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: ""
+  description: "Bytebase is an open-source database DevOps tool, it's the GitLab for managing databases throughout the application development lifecycle."
   instructions:
     start: Install bytebase and start using it.
     end: Have fun!
@@ -11,7 +11,6 @@ caproverOneClickApp:
       label: Bytebase version. See https://hub.docker.com/r/bytebase/bytebase/tags for valid versions.
     - id: $$cap_pg_url
       description: PostgreSQL URL, e.g. postgres://user:password@host:port/dbname
-      validRegex: /^(postgres:\/\/\w+:\w+@\w+(?::\d+)?(?:\/[\w]+)(?:.*)?)?$/
       defaultValue: ""
       label: PostgreSQL URL
   displayName: bytebase
@@ -25,6 +24,6 @@ services:
     volumes:
       - $$cap_appname-data:/var/opt/bytebase
     environment:
-
+      PG_URL: $$cap_pg_url
     caproverExtra:
       containerHttpPort: "80"
