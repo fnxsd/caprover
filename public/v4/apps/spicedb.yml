@@ -53,7 +53,7 @@ services:
       notExposeAsWebApp: true
       dockerfileLines:
         - "FROM authzed/spicedb:$$cap_app_version"
-        - 'CMD ["serve"]'
+        - 'CMD^ ["serve"]'
   $$cap_appname-migrate:
     restart: "on-failure"
     environment:
