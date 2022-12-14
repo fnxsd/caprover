@@ -1,0 +1,122 @@
+services:
+  adhoc_worker:
+    command:
+    - worker
+    depends_on:
+      postgres:
+        condition: service_started
+      redis:
+        condition: service_started
+    environment:
+      QUEUES: '"queries"'
+      WORKERS_COUNT: "2"
+    image: redash/redash:10.1.0.b50633
+    networks:
+      default: null
+    restart: always
+  postgres:
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+    image: postgres:15.1-bullseye
+    networks:
+      default: null
+    restart: always
+    volumes:
+    - type: volume
+      source: postgres-data
+      target: /var/lib/postgresql/data
+      volume: {}
+  redis:
+    image: redis/redis-stack-server:7.0.2-RC4
+    networks:
+      default: null
+    restart: always
+    volumes:
+    - type: volume
+      source: redis-data
+      target: /data
+      volume: {}
+  scheduled_worker:
+    command:
+    - worker
+    depends_on:
+      postgres:
+        condition: service_started
+      redis:
+        condition: service_started
+    environment:
+      QUEUES: '"scheduled_queries,schemas"'
+      WORKERS_COUNT: "1"
+    image: redash/redash:10.1.0.b50633
+    networks:
+      default: null
+    restart: always
+  scheduler:
+    command:
+    - scheduler
+    depends_on:
+      postgres:
+        condition: service_started
+      redis:
+        condition: service_started
+    environment:
+      QUEUES: '"celery"'
+      WORKERS_COUNT: "1"
+    image: redash/redash:10.1.0.b50633
+    networks:
+      default: null
+    restart: always
+  server:
+    command:
+    - server
+    depends_on:
+      postgres:
+        condition: service_started
+      redis:
+        condition: service_started
+    environment:
+      REDASH_WEB_WORKERS: "4"
+    image: redash/redash:10.1.0.b50633
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 5000
+      published: 5000
+      protocol: tcp
+    restart: always
+  worker:
+    command:
+    - worker
+    depends_on:
+      postgres:
+        condition: service_started
+      redis:
+        condition: service_started
+    environment:
+      QUEUES: '"periodic emails default"'
+      WORKERS_COUNT: "1"
+    image: redash/redash:10.1.0.b50633
+    networks:
+      default: null
+    restart: always
+networks:
+  default:
+    name: one-click-apps_default
+volumes:
+  postgres-data:
+    name: one-click-apps_postgres-data
+  redis-data:
+    name: one-click-apps_redis-data
+x-redash-service:
+  depends_on:
+  - postgres
+  - redis
+  environment:
+  - REDASH_SECRET_KEY=
+  - REDASH_COOKIE_SECRET=
+  - REDASH_DATABASE_URL=postgresql://postgres:password@postgres/postgres
+  image: redash/redash:10.1.0.b50633
+  restart: always
