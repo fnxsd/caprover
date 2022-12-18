@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/fnxsd/caprover",
   "dependencies": {
-    "chalk": "^5.1.2",
+    "chalk": "^5.2.0",
     "fs-extra": "^11.1.0",
     "gh-pages": "^4.0.0",
     "mkdirp": "1.0.4",
