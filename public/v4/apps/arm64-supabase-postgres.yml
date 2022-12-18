@@ -18,7 +18,7 @@ caproverOneClickApp:
   variables:
     - id: $$cap_app_version
       label: Supabase Version
-      defaultValue: LATEST
+      defaultValue: 15.1.0.17-rc1_arm64
       description: Check out their Docker page for the valid tags https://hub.docker.com/r/supabase/postgres/tags
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_pg_user

@@ -1,6 +1,6 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: ""
+  description: "With RudderStack, you can easily collect and send customer data in real-time from your warehouses to the tools used by marketing, analytics, product, and customer success teams."
   instructions:
     start: Install rudder-server and start using it.
     end: Have fun!
@@ -17,22 +17,20 @@ caproverOneClickApp:
       label: Database user
       description: Database username
       defaultValue: rudder
-      
 
     - id: $$cap_db_name
       label: Database name
       description: Database name
       defaultValue: $$cap_db_name
-      
 
     - id: $$cap_db_pass
       label: Database Password
       description: Password to connect to the database
       defaultValue: $$cap_gen_random_hex(16)
-    
+
   displayName: rudder-server
   isOfficial: false
-  documentation: ""
+  documentation: "https://www.rudderstack.com/docs/"
 services:
   $$cap_appname:
     image: rudder-server:$$cap_app_version
