@@ -1,0 +1,29 @@
+captainVersion: "4"
+caproverOneClickApp:
+  description: "Typesense offers a delightful, out-of-the-box search experience. From instant search, to autosuggest, to faceted search, Typesense has got you covered."
+  instructions:
+    start: Install typesense and start using it.
+    end: Remember to make port 8108 accessible if you want to access the admin panel.
+  variables:
+    - id: $$cap_app_version
+      description: Version of typesense. See https://hub.docker.com/r/typesense/typesense/tags?page=1&ordering=last_updated for available versions.
+      defaultValue: 0.23.1
+      label: App Version
+    - id: $$cap_app_typesense_apikey
+      description: API key for typesense
+      defaultValue: typesense
+      label: API Key
+  displayName: typesense
+  isOfficial: false
+  documentation: "https://typesense.org/docs"
+services:
+  $$cap_appname:
+    image: typesense/typesense:$$
+    command:
+      - -c
+      - /opt/typesense-server --data-dir /data --api-key $$cap_app_typesense_apikey
+    volumes:
+      - $$cap_appname-data:/data
+    environment: []
+    caproverExtra:
+      containerHttpPort: "8108"

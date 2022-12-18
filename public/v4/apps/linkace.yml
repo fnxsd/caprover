@@ -75,7 +75,30 @@ caproverOneClickApp:
       label: Queue Driver
       defaultValue: "redis"
       description: Queue Driver
-      validRegex: /^(redis|database)$/i
+      validRegex: /^(redis|database|sync|sqs|)/i
+    - id: $$cap_aws_access_key_id
+      label: AWS Access Key ID
+      defaultValue: ""
+      validRegex: /^((?:ASIA|AKIA|AROA|AIDA)([A-Z0-7]{16})|)$/i
+      description: AWS Access Key ID
+    - id: $$cap_aws_secret_access_key
+      label: AWS Secret Access Key
+      defaultValue: ""
+      validRegex: /^([a-zA-Z0-9/+=]{40})|$/i
+      description: AWS Secret Access Key
+    - id: $$cap_aws_default_region
+      label: AWS Default Region
+      defaultValue: "us-east-1"
+      validRegex: /^([a-z0-9-]+)$/i
+      description: AWS Default Region
+    - id: $$cap_aws_queue_prefix
+      label: AWS Queue Prefix
+      defaultValue: ""
+      description: AWS Queue Prefix, e.g. 'https://sqs.us-east-1.amazonaws.com/your-account-id'
+    - id: $$cap_aws_sqs_queue
+      label: AWS SQS Queue
+      defaultValue: "linkace-queue"
+      description: AWS SQS Queue
   displayName: linkace
   isOfficial: false
   documentation: "See https://www.linkace.org/docs/"
