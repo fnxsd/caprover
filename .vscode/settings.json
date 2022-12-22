@@ -7,7 +7,8 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
-    "dist/":true
+    "dist/": true,
+    "one-click-apps.code-workspace": true
   },
   "yaml.schemas": {
     "file:///home/dev/.vscode/extensions/qovery.vscode-qovery-extension-0.1.2/out/domain/QoverySpec.json": "*.qovery.y*ml",
@@ -33,5 +34,5 @@
     "commandCenter.border": "#e7e7e799",
     "statusBar.background": "#a654d9",
     "statusBar.foreground": "#e7e7e7"
-}
+  }
 }

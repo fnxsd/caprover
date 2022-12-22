@@ -1,0 +1,22 @@
+captainVersion: "4"
+caproverOneClickApp:
+  description: ""
+  instructions:
+    start: Install jitsu and start using it.
+    end: Have fun!
+  variables:
+    - id: $$cap_app_version
+      description: Version of jitsu
+      defaultValue: latest
+      label: App Version
+  displayName: jitsu
+  isOfficial: false
+  documentation: ""
+services:
+  $$cap_appname:
+    image: jitsu:$$cap_app_version
+    volumes:
+      - $$cap_appname-data:/data/jitsu
+    environment: []
+    caproverExtra:
+      containerHttpPort: "3000"

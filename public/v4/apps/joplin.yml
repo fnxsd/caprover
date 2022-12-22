@@ -44,7 +44,7 @@ caproverOneClickApp:
       defaultValue: "joplin"
     - id: $$cap_postgres_password
       label: Postgres Password
-      defaultValue: cA3rS2oK
+      defaultValue: $$cap_gen_random_hex(16)
     - id: $$cap_joplin_tag
       label: Joplin Version
       defaultValue: "latest"

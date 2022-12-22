@@ -1,0 +1,196 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/CaproverDefiniton",
+    "definitions": {
+        "CaproverDefiniton": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "captainVersion": {
+                    "$ref": "#/definitions/CaptainVersion"
+                },
+                "caproverOneClickApp": {
+                    "$ref": "#/definitions/CaproverOneClickApp"
+                },
+                "services": {
+                    "$ref": "#/definitions/Services"
+                }
+            },
+            "required": [],
+            "title": "CaproverDefiniton"
+        },
+        "CaproverOneClickApp": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "instructions": {
+                    "$ref": "#/definitions/Instructions"
+                },
+                "variables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Variable"
+                    }
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "isOfficial": {
+                    "type": "boolean"
+                },
+                "documentation": {
+                    "type": "string",
+                    "qt-uri-protocols": [
+                        "https"
+                    ]
+                }
+            },
+            "required": [],
+            "title": "CaproverOneClickApp"
+        },
+        "Instructions": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "start": {
+                    "type": "string"
+                },
+                "end": {
+                    "type": "string"
+                }
+            },
+            "required": [],
+            "title": "Instructions"
+        },
+        "Variable": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "defaultValue": {
+                    "$ref": "#/definitions/DefaultValue"
+                },
+                "validRegex": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "required": [],
+            "title": "Variable"
+        },
+        "Services": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "$$cap_appname": {
+                    "$ref": "#/definitions/CapAppname"
+                },
+                "$$cap_appname-mongo": {
+                    "$ref": "#/definitions/CapAppnameMongo"
+                },
+                "$$cap_appname-web": {
+                    "$ref": "#/definitions/CapAppnameWeb"
+                },
+                "$$cap_appname-db": {
+                    "$ref": "#/definitions/CapAppnameDB"
+                },
+                "$$cap_appname-redis": {
+                    "$ref": "#/definitions/CapAppnameRedis"
+                }
+            },
+            "required": [],
+            "title": "Services"
+        },
+        "CaproverAppService": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "image": {
+                    "type": "string"
+                },
+                "restart": {
+                    "type": "string"
+                },
+                "environment": {"$ref": "#/definitions/list_or_dict"},
+                "ports": {
+                    "type": "array",
+                    "items": {
+                      "type": ["string", "number"],
+                      "format": "ports"
+                    },
+                    "uniqueItems": true
+                  },
+          
+                "depends_on": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                
+                },
+                "volumes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+                "hostname":{ "type": "string"},
+                "caproverExtra": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "patternProperties": {
+                        ".*": {
+                            "type": "string"
+                        }
+                    
+                    }
+                }
+            },
+            "required": [],
+            "title": "CaproverAppService"
+        },
+        "list_or_dict": {
+            "oneOf": [
+              {
+                "type": "object",
+                "patternProperties": {
+                  ".+": {
+                    "type": ["string", "number", "null"]
+                  }
+                },
+                "additionalProperties": false
+              },
+              {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+            ]
+          },
+      
+        "DefaultValue": {
+            "anyOf": [
+                {
+                    "type": "integer"
+                },
+                {
+                    "type": "string"
+                }
+            ],
+            "title": "DefaultValue"
+        },
+        "CaptainVersion": {
+            "anyOf": [
+                {
+                    "type": "integer"
+                },
+                {
+                    "type": "string",
+                    "format": "integer"
+                }
+            ],
+            "title": "CaptainVersion"
+        }
+    }
+}
