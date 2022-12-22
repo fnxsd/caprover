@@ -58,7 +58,7 @@
     "@types/rimraf": "3.0.2",
     "@types/semver": "^7.3.13",
     "@types/yaml": "^1.9.7",
-    "@types/yargs": "17.0.15",
+    "@types/yargs": "17.0.17",
     "caprover": "^2.2.3",
     "globby": "^13",
     "npm-check-updates": "16.4.3",
