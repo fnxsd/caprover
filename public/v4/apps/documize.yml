@@ -20,7 +20,7 @@ caproverOneClickApp:
       validRegex: /.{1,}/
     - id: $$cap_app_salt
       label: App Salt
-      defaultValue: $$cap_gen_random_hex(16)
+      defaultValue: $$cap_gen_random_hex(32)
       description: Salt for the app.
   displayName: documize
   isOfficial: false

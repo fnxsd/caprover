@@ -1,0 +1,88 @@
+captainVersion: 4
+services:
+    $$cap_appname:
+        documentation: Taken from https://github.com/docker-mailserver/docker-mailserver
+
+        image: docker.io/mailserver/docker-mailserver:$$cap_app_version
+        hostname: $$cap_host
+        domainname: $$cap_domain
+        ports:
+          - "25:25"
+          - "143:143"
+          - "587:587"
+          - "993:993"
+        volumes:
+            - $$cap_appname-data-mail:/var/mail/
+            - $$cap_appname-data-mail-state:/var/mail-state/
+            - $$cap_appname-data-mail-log:/var/log/mail/
+            - $$cap_appname-data-mail-confiog:/tmp/docker-mailserver/
+            - /etc/localtime:/etc/localtime:ro
+        restart: always
+        environment:
+          ENABLE_SPAMASSASSIN: $$cap_enable_spamassassin
+          SPAMASSASSIN_SPAM_TO_INBOX: $$cap_spamassaassin_spam_to_inbox
+          ENABLE_CLAMAV: $$cap_enable_camlav
+          ENABLE_FAIL2BAN: $$cap_enable_fail2ban
+          ENABLE_POSTGREY: $$cap_enable_postgrey
+          ENABLE_SASLAUTHD: 0
+          ONE_DIR: 1
+          OVERIDE_HOSTNAME: $$cap_host
+          SRS_DOMAINNAME: $$cap_domain
+          TZ: $$cap_tz
+          ENABLE_UPDATE_CHECK: $$cap_enable_update_check
+        cap_add:
+          - NET_ADMIN
+        caproverExtra:
+            notExposeAsWebApp: true
+caproverOneClickApp:
+    variables:
+        - id: $$cap_app_version
+          label: Docker Mailserver Version
+          defaultValue: '11.3.1'
+          description: Check out their Docker page for the valid tags https://hub.docker.com/r/mailserver/docker-mailserver/tags
+        - id: $$cap_host
+          label: Hostname
+          defaultValue: mail
+          description: Hostname for Docker Mailserver
+        - id: $$cap_domain
+          label: Domain
+          defaultValue: example.com
+          description: Domain for Docker Mailserver
+        - id: $$cap_enable_camlav
+          label: Enable ClamAV
+          defaultValue: '1'
+          description: Enable ClamAV
+        - id: $$cap_enable_spamassassin
+          label: Enable SpamAssassin
+          defaultValue: '1'
+          description: Enable SpamAssassin
+        - id: $$cap_spamassaassin_spam_to_inbox
+          label: SpamAssassin Spam to Inbox
+          defaultValue: '1'
+          description: SpamAssassin Spam to Inbox
+        - id: $$cap_enable_fail2ban
+          label: Enable Fail2Ban
+          defaultValue: '1'
+          description: Enable Fail2Ban
+        - id: $$cap_enable_postgrey
+          label: Enable Postgrey
+          defaultValue: '1'
+          description: Enable Postgrey
+        - id: $$cap_enable_update_check
+          label: Enable Update Check
+          defaultValue: '1'
+          description: Enable Update Check
+        - id: $$cap_tz
+          label: Timezone
+          defaultValue: Europe/Berlin
+          description: Timezone for Docker Mailserver
+        - 
+    instructions:
+        start: |-
+            Docker Mailserver
+            The process will deploy a docker-mailserver
+        end: |-
+            Docker Mailserver deployed to $$cap_host.$$cap_domain
+    displayName: Docker Mailserver
+    isOfficial: false
+    description: Docker Mailserver
