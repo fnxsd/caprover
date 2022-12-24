@@ -1,0 +1,39 @@
+captainVersion: "4"
+caproverOneClickApp:
+  description: "ClusterControl is an agentless management and automation software for database clusters. It helps deploy, monitor, manage and scale your database server/cluster directly from the user interface."
+  instructions:
+    start: Install clusterconotrol and start using it.
+    end: Remember to enable https. Also,check if ports 9443 and 19501 are mapped.
+  variables:
+    - id: $$cap_app_version
+      description: Version of serveral9's ClusterControl to use. Check out their Docker page for the valid tags https://hub.docker.com/r/severalnines/clustercontrol/tags
+      defaultValue: 1.9.5-3
+      label: App Version
+    - id: $$cap_mysql_password
+      description: Password for MySQL root user
+      defaultValue: $$cap_gen_random_hex(16)
+    - id: $$cap_cmon_password
+      description: Password for ClusterControl user
+      defaultValue: $$cap_gen_random_hex(16)
+  displayName: clusterconotrol
+  isOfficial: false
+  documentation: "https://docs.severalnines.com/docs/clustercontrol/"
+services:
+  $$cap_appname:
+    image: severalnines/clustercontrol:$$cap_app_version
+    ports:
+      - "9443:9443"
+      - "19501:19501"
+    environment:
+      CMON_PASSWORD: $$cap_cmon_password
+      MYSQL_ROOT_PASSWORD: $$cap_mysql_password
+    volumes:
+      - $$cap_appname-cc-cmond:/etc/cmon.d
+      - $$cap_appname-cc-datadir:/var/lib/mysql
+      - $$cap_appname-cc-ssh:/root/.ssh
+      - $$cap_appname-cc-cmonlib:/var/lib/cmon
+      - $$cap_appname-cc-backups:/root/backups
+      - $$cap_appname-prom-data:/var/lib/prometheus
+      - $$cap_appname-prom-conf:/etc/prometheus
+    caproverExtra:
+      containerHttpPort: "80"
