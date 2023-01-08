@@ -200,7 +200,23 @@ MANIFEST
 *.manifest
 *.spec
 
-# Installer logs
+# Installer logsbitdotio
+dataset
+flatten-dict
+jinjasql
+joblib
+jupyter
+nested-lookup
+pandas
+petl
+psycopg2
+pydash
+rsconnect-python
+simplejson
+spotipy
+sqlalchemy
+tqdm
+ytmusicapi
 pip-log.txt
 pip-delete-this-directory.txt
 

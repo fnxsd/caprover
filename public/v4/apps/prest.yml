@@ -13,7 +13,7 @@ caproverOneClickApp:
       label: Postgres Version
       defaultValue: "15-alpine"
       description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/postgres/tags/
-      validRegex: /^([^\s^\/])+$/      
+      validRegex: /^([^\s^\/])+$/
     - id: $$cap_postgres_db
       label: Postgres DB
       defaultValue: "prest"
@@ -30,7 +30,7 @@ services:
   $$cap_appname:
     image: prest/prest:$$cap_app_version
     environment:
-      PREST_PG_HOST: srv-captain--$$cap_appname-db    
+      PREST_PG_HOST: srv-captain--$$cap_appname-db
       PREST_PG_PASS: $$cap_postgres_password
       PREST_PG_DATABASE: $$cap_postgres_db
       PREST_PG_USER: $$cap_postgres_user

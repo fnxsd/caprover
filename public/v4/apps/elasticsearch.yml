@@ -4,16 +4,22 @@ caproverOneClickApp:
     - id: $$cap_elasticsearch_version
       label: Elasticsearch Version Tag
       description: "Check out the releases overview: https://www.elastic.co/de/downloads/elasticsearch"
-      defaultValue: 7.8.0
+      defaultValue: 8.5.0
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_elasticsearch_heap_size
       label: Elasticsearch Heap Size
-      description: "The heap size of the Elasticsearch container"
-      defaultValue: "512m"
+      description: "The heap size of the Elasticsearch container. Must be a number followed by m(egabyte) or g(igabyte), e.g. 256m or 1g"
+      defaultValue: "256m"
+      validRegex: /^(\d+[mg])$/
     - id: $$cap_elasticsearch_discovery_type
       label: Elasticsearch Discovery Type
       description: "The discovery type of the Elasticsearch container"
       defaultValue: "single-node"
+    - id: $$cap_elastic_password
+      label: Elasticsearch Password
+      description: "The password of the elastic user"
+      defaultValue: $$cap_gen_random_hex(16)
+
   instructions:
     start: 'Elasticsearch is a distributed, RESTful search and analytics engine. This image can be used for single nodes and cluster setups. IMPORTANT: Be sure to extend the virtual memory on all your hosts! (increase "echo ''vm.max_map_count=262144'' >> /etc/sysctl.conf" and restart "sysctl -p")'
     end: 'Deployment of Elasticsearch is finished. You might see 502 errors for the next 2 minutes. Goto <YOUR-APP-URL>/_cat/health to check the health of your cluster. IMPORTANT: Be sure to extend the virtual memory on all your hosts! (increase "echo ''vm.max_map_count=262144'' >> /etc/sysctl.conf" and restart "sysctl -p")'
@@ -31,5 +37,7 @@ services:
     environment:
       ES_JAVA_OPTS: "-Xms$$cap_elasticsearch_heap_size -Xmx$$cap_elasticsearch_heap_size"
       discovery.type: $$cap_elasticsearch_discovery_type
+      ELASTIC_PASSWORD: $$cap_elastic_password
+      xpack.security.enabled: true
     caproverExtra:
-      containerHttpPort: $$cap_container_port
+      containerHttpPort: 9200
