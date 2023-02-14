@@ -1,6 +1,8 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "Authorizer is an open-source authentication and authorization solution for your applications. Bring your database and have complete control over the user information."
+  description:
+    "Authorizer is an open-source authentication and authorization solution for your applications. Bring your database
+    and have complete control over the user information."
   instructions:
     start: Install authorizer and start using it.
     end: Have fun! And don't forget to turn on SSL.

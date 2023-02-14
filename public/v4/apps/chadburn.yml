@@ -28,5 +28,7 @@ caproverOneClickApp:
       Chadburn has been successfully deployed! Please visit https://github.com/PremoWeb/Chadburn for more information on usage.
   displayName: Chadburn
   isOfficial: false
-  description: Chadburn is a modern and low footprint job scheduler for docker environments, built on Go. Chadburn is a suitable replacement for the old fashioned cron in Docker environments.
+  description:
+    Chadburn is a modern and low footprint job scheduler for docker environments, built on Go. Chadburn is a suitable
+    replacement for the old fashioned cron in Docker environments.
   documentation: See https://github.com/Premoweb/Chadburn for official documentation and how it's used within Caprover.

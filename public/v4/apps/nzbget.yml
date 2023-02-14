@@ -16,7 +16,9 @@ caproverOneClickApp:
   variables:
     - id: $$cap_tz
       label: Timezone
-      description: This is the timezone for the application, find yours at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      description:
+        This is the timezone for the application, find yours at
+        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
       defaultValue: Europe/Brussels
     - id: $$cap_nzbget_version
       label: SABnzbd Version
@@ -37,10 +39,10 @@ caproverOneClickApp:
       label: Path to Downloads folder.
   instructions:
     start: >-
-      NZBGet is written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources.
+      NZBGet is written in C++ and designed with performance in mind to achieve maximum download speed by using very
+      little system resources.
     end: >-
-      Aaaand you're done! 😄
-      Your service is available at http://$$cap_appname.$$cap_root_domain
+      Aaaand you're done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: "NZBGet"
   isOfficial: true
   description: The most efficient usenet downloader.

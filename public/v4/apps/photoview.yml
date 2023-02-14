@@ -32,7 +32,9 @@ caproverOneClickApp:
   variables:
     - id: $$cap_tz
       label: Timezone
-      description: This is the timezone for the application, find yours at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      description:
+        This is the timezone for the application, find yours at
+        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
       defaultValue: Europe/Brussels
     - id: $$cap_photoview_version
       label: Photoview Version
@@ -65,8 +67,7 @@ caproverOneClickApp:
     start: >-
       Photo gallery for self-hosted personal servers.
     end: >-
-      Aaaand you're done! 😄
-      Your service is available at http://$$cap_appname.$$cap_root_domain
+      Aaaand you're done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: "Photoview"
   isOfficial: true
   description: Photo gallery for self-hosted personal servers.

@@ -6,7 +6,8 @@ caproverOneClickApp:
     end: Have fun!
   variables:
     - id: $$cap_app_version
-      description: Version of redis-stack. See https://hub.docker.com/r/redis/redis-stack-server/tags for available versions.
+      description:
+        Version of redis-stack. See https://hub.docker.com/r/redis/redis-stack-server/tags for available versions.
       defaultValue: 7.0.2-RC2
       label: App Version
     - id: $$cap_redis_password

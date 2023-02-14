@@ -20,17 +20,12 @@ function validateV4() {
     }
 
     for (var i = 0; i < apps.length; i++) {
-      const contentString = fs.readFileSync(
-        path.join(pathOfApps, apps[i]),
-        "utf-8"
-      )
+      const contentString = fs.readFileSync(path.join(pathOfApps, apps[i]), "utf-8")
       const content = yaml.parse(contentString)
       const captainVersion = content.captainVersion + ""
       const versionString = version + ""
       if (versionString !== captainVersion)
-        throw new Error(
-          `unmatched versions   ${versionString}  ${captainVersion} for ${apps[i]}`
-        )
+        throw new Error(`unmatched versions   ${versionString}  ${captainVersion} for ${apps[i]}`)
 
       apps[i] = apps[i].replace(".yml", "")
 
@@ -43,9 +38,7 @@ function validateV4() {
       }
 
       if (content.caproverOneClickApp.description.length > 200) {
-        throw new Error(
-          `Description too long for ${apps[i]}  - keep it below 200 chars`
-        )
+        throw new Error(`Description too long for ${apps[i]}  - keep it below 200 chars`)
       }
 
       if (
@@ -53,9 +46,7 @@ function validateV4() {
         !content.caproverOneClickApp.instructions.start ||
         !content.caproverOneClickApp.instructions.end
       ) {
-        throw new Error(
-          `Cannot find instructions.start or instructions.end for ${apps[i]}`
-        )
+        throw new Error(`Cannot find instructions.start or instructions.end for ${apps[i]}`)
       }
 
       if (!content.services) {
@@ -76,9 +67,7 @@ function validateV4() {
 
       if (!fs.existsSync(logoFullPath) || !fs.statSync(logoFullPath).isFile()) {
         let printablePath = logoFullPath
-        printablePath = printablePath.substr(
-          printablePath.indexOf(`/${PUBLIC}`)
-        )
+        printablePath = printablePath.substr(printablePath.indexOf(`/${PUBLIC}`))
         throw new Error(`Cannot find logo for ${apps[i]} ${printablePath}`)
       }
 
@@ -110,9 +99,7 @@ function validateV2() {
       const captainVersion = content.captainVersion + ""
       const versionString = version + ""
       if (versionString !== captainVersion)
-        throw new Error(
-          `unmatched versions   ${versionString}  ${captainVersion} for ${apps[i]}`
-        )
+        throw new Error(`unmatched versions   ${versionString}  ${captainVersion} for ${apps[i]}`)
 
       apps[i] = apps[i].replace(".json", "")
 
@@ -120,9 +107,7 @@ function validateV2() {
         throw new Error(`Cannot find description for ${apps[i]}`)
       }
       if (content.description.length > 200) {
-        throw new Error(
-          `Description too long for ${apps[i]}  - keep it below 200 chars`
-        )
+        throw new Error(`Description too long for ${apps[i]}  - keep it below 200 chars`)
       }
 
       const logoFileName = apps[i] + ".png"
@@ -131,9 +116,7 @@ function validateV2() {
 
       if (!fs.existsSync(logoFullPath) || !fs.statSync(logoFullPath).isFile()) {
         let printablePath = logoFullPath
-        printablePath = printablePath.substr(
-          printablePath.indexOf(`/${PUBLIC}`)
-        )
+        printablePath = printablePath.substr(printablePath.indexOf(`/${PUBLIC}`))
         throw new Error(`Cannot find logo for ${apps[i]} ${printablePath}`)
       }
 

@@ -1,6 +1,8 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "MetaTube downloads video from YouTube and can add metadata from a specified metadata provider on the downloaded file."
+  description:
+    "MetaTube downloads video from YouTube and can add metadata from a specified metadata provider on the downloaded
+    file."
   instructions:
     start: "Simply install the program"
     end: "Have fun"

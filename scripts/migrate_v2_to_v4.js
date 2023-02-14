@@ -81,42 +81,21 @@ function buildDist() {
     // [ app1.json app2.json .... ]
 
     appsFileNames.forEach((appFileName) => {
-      const pathOfAppFileInSource = path.join(
-        pathOfSourceDirectoryAppsV2,
-        appFileName
-      )
+      const pathOfAppFileInSource = path.join(pathOfSourceDirectoryAppsV2, appFileName)
 
       //v4
       const pathOfSourceDirectoryV4 = path.join(pathOfPublic, "v4")
       const contentString = fs.readFileSync(pathOfAppFileInSource)
 
       fs.outputFileSync(
-        path.join(
-          pathOfSourceDirectoryV4,
-          `apps`,
-          appFileName.split(".")[0] + ".yml"
-        ),
+        path.join(pathOfSourceDirectoryV4, `apps`, appFileName.split(".")[0] + ".yml"),
         yaml.stringify(convertV2toV4(contentString))
       )
       fs.moveSync(
-        path.join(
-          pathOfSourceDirectoryV2,
-          `logos`,
-          appFileName.split(".")[0] + ".png"
-        ),
-        path.join(
-          pathOfSourceDirectoryV4,
-          `logos`,
-          appFileName.split(".")[0] + ".png"
-        )
+        path.join(pathOfSourceDirectoryV2, `logos`, appFileName.split(".")[0] + ".png"),
+        path.join(pathOfSourceDirectoryV4, `logos`, appFileName.split(".")[0] + ".png")
       )
-      fs.removeSync(
-        path.join(
-          pathOfSourceDirectoryV2,
-          `apps`,
-          appFileName.split(".")[0] + ".json"
-        )
-      )
+      fs.removeSync(path.join(pathOfSourceDirectoryV2, `apps`, appFileName.split(".")[0] + ".json"))
     })
   })
 }

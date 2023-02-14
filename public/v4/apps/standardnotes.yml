@@ -8,17 +8,7 @@ services:
     depends_on:
       - $$cap_appname-db
       - $$cap_appname-cache
-    entrypoint:
-      [
-        "./wait-for.sh",
-        "db",
-        "3306",
-        "./wait-for.sh",
-        "cache",
-        "6379",
-        "./docker/entrypoint.sh",
-        "start-web"
-      ]
+    entrypoint: ["./wait-for.sh", "db", "3306", "./wait-for.sh", "cache", "6379", "./docker/entrypoint.sh", "start-web"]
     environment:
       NEW_RELIC_ENABLED: $$cap_new_relic_enabled
       NEW_RELIC_NO_CONFIG_FILE: true
@@ -275,7 +265,9 @@ services:
       NEW_RELIC_LICENSE_KEY: $$cap_new_relic_license_key
       NEW_RELIC_LABELS: $$cap_new_relic_labels
     restart: unless-stopped
-    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci
+    command:
+      --default-authentication-plugin=mysql_native_password --character-set-server=utf8
+      --collation-server=utf8_general_ci
     volumes:
       - $$cap_appname-data-mysql:/var/lib/mysql
     caproverExtra:
@@ -311,11 +303,13 @@ caproverOneClickApp:
     - id: $$cap_syncing_server_version
       label: Standardnotes syncinf server version
       defaultValue: "1.46.1"
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/standardnotes/syncing-server-js/tags
+      description:
+        Check out their Docker page for the valid tags https://hub.docker.com/r/standardnotes/syncing-server-js/tags
     - id: $$cap_api_gateway_version
       defaultValue: "1.33.0"
       label: Standardnotes api gateway version
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/standardnotes/api-gateway/tags
+      description:
+        Check out their Docker page for the valid tags https://hub.docker.com/r/standardnotes/api-gateway/tags
     - id: $$cap_disable_user_registration
       defaultValue: "false"
       validRegex: "/^(true|false)$/"
@@ -343,21 +337,28 @@ caproverOneClickApp:
 
       validRegex: "/^(true|false)$/"
     - id: $$cap_new_relic_labels
-      description: Adds tags. Specify your tags as objects or a semicolon-delimited string of colon-separated pairs (for example, Server:One;Data Center:Primary).
+      description:
+        Adds tags. Specify your tags as objects or a semicolon-delimited string of colon-separated pairs (for example,
+        Server:One;Data Center:Primary).
       label: New relic labels
     - id: $$cap_new_relic_license_key
-      description: Specifies the license key of your New Relic account. This key associates your app's metrics with your New Relic account.
+      description:
+        Specifies the license key of your New Relic account. This key associates your app's metrics with your New Relic
+        account.
       label: New relic log level
     - id: $$cap_new_relic_app_name
       defaultValue: standardnotes
       label: New Relic App Name
       description: >-
-        The application name used to aggregate data in the New Relic One UI. To report data to multiple apps at the same time, specify a list of names separated with a semicolon ;. 
-        Do not put a space before the semicolon, which causes the Python config parser to interpret the name as an embedded comment.
+        The application name used to aggregate data in the New Relic One UI. To report data to multiple apps at the same
+        time, specify a list of names separated with a semicolon ;.  Do not put a space before the semicolon, which
+        causes the Python config parser to interpret the name as an embedded comment.
     - id: $$cap_new_relic_log_level
       defaultValue: info
       label: New relic log level
-      description: Sets the level of detail of log messages. Possible values, in increasing order of detail, are critical, error, warning, info, and debug.
+      description:
+        Sets the level of detail of log messages. Possible values, in increasing order of detail, are critical, error,
+        warning, info, and debug.
       validRegex: "/^(info|critical|error|warning|debug)$/"
     - id: $$cap_new_relic_log_enabled
       label: New relic log enabled
@@ -370,11 +371,15 @@ caproverOneClickApp:
       description: See https://docs.newrelic.com/docs/distributed-tracing/concepts/introduction-distributed-tracing/
   instructions:
     start: >-
-      Standard Notes is free and open-source software, which means self-hosting both ends (the app and server) is possible and relatively simple.
-      - The machine you will be running the infrastructure on has at least 2GB of memory.
+      Standard Notes is free and open-source software, which means self-hosting both ends (the app and server) is
+      possible and relatively simple. - The machine you will be running the infrastructure on has at least 2GB of
+      memory.
     end: >-
-      Please wait for 2 minutes. Appsmith is deployed and available as $$cap_appname. For a more configuration overview, visit https://docs.standardnotes.com/self-hosting/configuration-options
+      Please wait for 2 minutes. Appsmith is deployed and available as $$cap_appname. For a more configuration overview,
+      visit https://docs.standardnotes.com/self-hosting/configuration-options
   displayName: Standard Notes
   isOfficial: false
-  description: Standard Notes is an easy-to-use encrypted note-taking app for digitalists and professionals. Capture your notes, documents, and life’s work all in one place.
+  description:
+    Standard Notes is an easy-to-use encrypted note-taking app for digitalists and professionals. Capture your notes,
+    documents, and life’s work all in one place.
   documentation: Adapted from https://docs.standardnotes.com/self-hosting/docker

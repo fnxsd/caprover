@@ -35,7 +35,9 @@ caproverOneClickApp:
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_pma_queryhistory
       label: Query history (true/false)
-      description: when set to true, enables storing SQL history When false, history is stored in the browser and is cleared when logging out
+      description:
+        when set to true, enables storing SQL history When false, history is stored in the browser and is cleared when
+        logging out
       defaultValue: true
       validRegex: /(true|false)/
     - id: $$cap_pma_queryhistorymax
@@ -65,12 +67,17 @@ caproverOneClickApp:
       validRegex: /^([0-9]*)$/
   instructions:
     start: >-
-      PhpMyAdmin is the most popular web interface for MySQL & MariaDB. Simply install PhpMyAdmin and then select what database you want to connect to.
+      PhpMyAdmin is the most popular web interface for MySQL & MariaDB. Simply install PhpMyAdmin and then select what
+      database you want to connect to.
 
-      Enter your PhpMyAdmin Configuration parameters and click on next. It will take about a minute for the process to finish.
+      Enter your PhpMyAdmin Configuration parameters and click on next. It will take about a minute for the process to
+      finish.
     end: >-
-      PhpMyAdmin is deployed and available as $$cap_appname. Please enable https before you can access it at https://$$cap_appname.$$cap_root_domain. Also, it is recommended to add basic authentication to this app.
+      PhpMyAdmin is deployed and available as $$cap_appname. Please enable https before you can access it at
+      https://$$cap_appname.$$cap_root_domain. Also, it is recommended to add basic authentication to this app.
   displayName: phpMyAdmin
   isOfficial: false
-  description: phpMyAdmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB.
+  description:
+    phpMyAdmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web.
+    phpMyAdmin supports a wide range of operations on MySQL and MariaDB.
   documentation: Taken from https://hub.docker.com/_/phpmyadmin

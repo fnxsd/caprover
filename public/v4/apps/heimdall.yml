@@ -11,7 +11,9 @@ caproverOneClickApp:
   variables:
     - id: $$cap_tz
       label: Timezone
-      description: This is the timezone for the application, find yours at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      description:
+        This is the timezone for the application, find yours at
+        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
       defaultValue: Europe/Brussels
     - id: $$cap_heimdall_version
       label: Version Tag
@@ -27,5 +29,6 @@ caproverOneClickApp:
       Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: Heimdall
   isOfficial: true
-  description: Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.
+  description:
+    Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.
   documentation: https://docs.linuxserver.io/images/docker-heimdall

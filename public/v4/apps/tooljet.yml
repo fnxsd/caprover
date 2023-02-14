@@ -76,16 +76,20 @@ caproverOneClickApp:
     end: "You can now access your Passky instance at http://$$cap_appname.$$cap_root_domain"
   displayName: tooljet
   isOfficial: false
-  description: "ToolJet is an open-source low-code framework to build and deploy custom internal tools. ToolJet can connect to your data sources."
+  description:
+    "ToolJet is an open-source low-code framework to build and deploy custom internal tools. ToolJet can connect to your
+    data sources."
   variables:
     - id: $$cap_tooljet_client_version
       label: tooljet client Version Tag
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/tooljet/tooljet-client-ce/tags/
+      description:
+        Check out their Docker page for the valid tags https://hub.docker.com/r/tooljet/tooljet-client-ce/tags/
       defaultValue: "latest"
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_tooljet_server_version
       label: tooljet server Version Tag
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/tooljet/tooljet-server-ce/tags/
+      description:
+        Check out their Docker page for the valid tags https://hub.docker.com/r/tooljet/tooljet-server-ce/tags/
       defaultValue: "latest"
       validRegex: /^([^\s^\/])+$/
     - defaultValue: smtp.eu.mailgun.org

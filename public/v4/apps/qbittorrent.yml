@@ -30,8 +30,8 @@ caproverOneClickApp:
       validRegex: /\/[^\s-][a-zA-Z0-9_\/-]*[^\/][^\s-]/
   instructions:
     start: >-
-      The qBittorrent project aims to provide an open-source software alternative to µTorrent.
-      qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.
+      The qBittorrent project aims to provide an open-source software alternative to µTorrent. qBittorrent is based on
+      the Qt toolkit and libtorrent-rasterbar library.
     end: >-
       qBittorrent is deployed and available as $$cap_appname.
   displayName: qBittorrent

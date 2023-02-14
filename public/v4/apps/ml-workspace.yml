@@ -16,7 +16,9 @@ services:
 caproverOneClickApp:
   variables:
     - label: ML-Workspace Version
-      description: Version of ML-Workspace to deploy. See https://hub.docker.com/r/mltooling/ml-workspace/tags for available versions.
+      description:
+        Version of ML-Workspace to deploy. See https://hub.docker.com/r/mltooling/ml-workspace/tags for available
+        versions.
       defaultValue: "0.13.2"
       id: $$cap_ml_workspace_version
     - label: JupyterLab Token
@@ -33,7 +35,11 @@ caproverOneClickApp:
       id: $$cap_conda_envs
   instructions:
     end: >
-      The ML workspace is an all-in-one web-based IDE specialized for machine learning and data science. It is simple to deploy and gets you started within minutes to productively built ML solutions on your own machines. This workspace is the ultimate tool for developers preloaded with a variety of popular data science libraries (e.g., Tensorflow, PyTorch, Keras, Sklearn) and dev tools (e.g., Jupyter, VS Code, Tensorboard) perfectly configured, optimized, and integrated.
+      The ML workspace is an all-in-one web-based IDE specialized for machine learning and data science. It is simple to
+      deploy and gets you started within minutes to productively built ML solutions on your own machines. This workspace
+      is the ultimate tool for developers preloaded with a variety of popular data science libraries (e.g., Tensorflow,
+      PyTorch, Keras, Sklearn) and dev tools (e.g., Jupyter, VS Code, Tensorboard) perfectly configured, optimized, and
+      integrated.
     start: The ML workspace is an all-in-one web-based IDE specialized for machine learning and data science.
   displayName: ml-workspace
   isOfficial: false

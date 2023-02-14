@@ -41,7 +41,9 @@ caproverOneClickApp:
     - id: $$cap_ackee_access_origin
       label: CORS headers
       defaultValue: "https://example.com,https://example2.com"
-      description: "Ackee requires correct CORS headers. pls read https://docs.ackee.electerious.com/#/docs/CORS%20headers#heroku-or-platforms-as-a-service-configuration"
+      description:
+        "Ackee requires correct CORS headers. pls read
+        https://docs.ackee.electerious.com/#/docs/CORS%20headers#heroku-or-platforms-as-a-service-configuration"
     - id: $$cap_mongo_version
       label: MongoDB Version
       defaultValue: "4.0.20"
@@ -49,10 +51,12 @@ caproverOneClickApp:
       validRegex: /^([^\s^\/])+$/
   instructions:
     start: >-
-      Ackee is a self-hosted analytics tool that cares about privacy. We believe that you don't need to track every aspect of your visitors. Ackee keeps tracked data anonymized to avoid that users are identifiable, while still providing helpful insights. It's the right tool for everyone who doesn't need a full-featured marketing analytics platform like Google Analytics or Matomo.
+      Ackee is a self-hosted analytics tool that cares about privacy. We believe that you don't need to track every
+      aspect of your visitors. Ackee keeps tracked data anonymized to avoid that users are identifiable, while still
+      providing helpful insights. It's the right tool for everyone who doesn't need a full-featured marketing analytics
+      platform like Google Analytics or Matomo.
     end: >-
-      Aaaand you're done! 😄
-      Your service is available at http://$$cap_appname.$$cap_root_domain
+      Aaaand you're done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: ackee
   isOfficial: false
   baseUrl: https://ackee.electerious.com

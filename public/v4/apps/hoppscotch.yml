@@ -3,7 +3,9 @@ caproverOneClickApp:
   description: "Open source API development ecosystem"
   instructions:
     start: Install hoppscotch and start using it.
-    end: You probably should add some kind of authentication to your deployment. At least the basic auth offered by CapRover. Also, you should activate websocket support in the settings.
+    end:
+      You probably should add some kind of authentication to your deployment. At least the basic auth offered by
+      CapRover. Also, you should activate websocket support in the settings.
   variables:
     - id: $$cap_app_version
       description: Version of hoppscotch

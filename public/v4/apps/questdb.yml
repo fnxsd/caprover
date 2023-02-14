@@ -23,8 +23,10 @@ caproverOneClickApp:
       defaultValue: "9000"
   instructions:
     end: >
-      QuestDB is a relational column-oriented database designed for time series and event data. It uses SQL with extensions for time series to assist with real-time analytics. These pages cover core concepts of QuestDB, including setup steps, usage guides, and reference documentation for syntax, APIs and configuration.
-      More ENVIRONMENT VARIABLES can be found at: https://questdb.io/docs/reference/configuration#environment-variables-1
+      QuestDB is a relational column-oriented database designed for time series and event data. It uses SQL with
+      extensions for time series to assist with real-time analytics. These pages cover core concepts of QuestDB,
+      including setup steps, usage guides, and reference documentation for syntax, APIs and configuration. More
+      ENVIRONMENT VARIABLES can be found at: https://questdb.io/docs/reference/configuration#environment-variables-1
     start: QuestDB is the fastest open source time series database
   displayName: QuestDB
   isOfficial: true

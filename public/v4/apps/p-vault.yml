@@ -64,8 +64,7 @@ caproverOneClickApp:
     start: >-
       💋 Manage your ever-growing porn collection. Using Vue & GraphQL
     end: >-
-      Porn Vault is deployed.
-      Your service is available at http://$$cap_appname.$$cap_root_domain
+      Porn Vault is deployed. Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: Porn Vault
   isOfficial: true
   description: 💋 Manage your ever-growing porn collection. Using Vue & GraphQL

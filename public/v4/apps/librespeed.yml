@@ -14,7 +14,9 @@ caproverOneClickApp:
   variables:
     - id: $$cap_tz
       label: Timezone
-      description: This is the timezone for the application, find yours at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      description:
+        This is the timezone for the application, find yours at
+        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
       defaultValue: Europe/Brussels
     - id: $$cap_librespeed_version
       label: librespeed Version
@@ -39,11 +41,13 @@ caproverOneClickApp:
       defaultValue: "1853"
   instructions:
     start: >-
-      Librespeed is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers. No Flash, No Java, No Websocket, No Bullshit.
+      Librespeed is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers. No
+      Flash, No Java, No Websocket, No Bullshit.
     end: >-
-      Aaaand you're done! 😄
-      Your service is available at http://$$cap_appname.$$cap_root_domain
+      Aaaand you're done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: "Librespeed"
   isOfficial: true
-  description: Librespeed is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers. No Flash, No Java, No Websocket, No Bullshit.
+  description:
+    Librespeed is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers. No
+    Flash, No Java, No Websocket, No Bullshit.
   documentation: Taken from https://github.com/librespeed/speedtest/wiki

@@ -38,7 +38,9 @@ caproverOneClickApp:
       defaultValue: $$cap_gen_random_hex(16)
       id: $$cap_DB_PASS
     - label: Timezone
-      description: This is the timezone for the application, find yours at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      description:
+        This is the timezone for the application, find yours at
+        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
       defaultValue: Europe/London
       id: $$cap_timezone
     - id: $$cap_bookstack_version

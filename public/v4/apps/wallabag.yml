@@ -99,5 +99,6 @@ caproverOneClickApp:
       Default login is wallabag:wallabag.
   displayName: Wallabag
   isOfficial: false
-  description: Wallabag is a self hostable application for saving web pages, Save and classify articles. Read them later. Freely.
+  description:
+    Wallabag is a self hostable application for saving web pages, Save and classify articles. Read them later. Freely.
   documentation: https://github.com/wallabag/docker#how-to-use-this-image

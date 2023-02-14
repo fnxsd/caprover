@@ -44,7 +44,8 @@ caproverOneClickApp:
     - id: $$cap_postgres_version
       label: PostgreSQL Version
       defaultValue: "13"
-      description: Check out their Docker page for the valid tags https://github.com/ferretdb/FerretDB/pkgs/container/ferretdb
+      description:
+        Check out their Docker page for the valid tags https://github.com/ferretdb/FerretDB/pkgs/container/ferretdb
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_postgres_password
       label: PostgreSQL password
@@ -53,7 +54,8 @@ caproverOneClickApp:
     - id: $$cap_ferretdb_version
       label: FerretDB Version
       defaultValue: "0.5.3"
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/ghcr.io/ferretdb/ferretdb/tags
+      description:
+        Check out their Docker page for the valid tags https://hub.docker.com/r/ghcr.io/ferretdb/ferretdb/tags
       validRegex: /^([^\s^\/])+$/
 
   displayName: FeerretDB -postgresql
@@ -61,5 +63,7 @@ caproverOneClickApp:
   instructions:
     start: Just use it
     end: go for it
-  description: FerretDB is an open-source proxy, converting the MongoDB wire protocol queries to SQL - using PostgreSQL as a database engine.
+  description:
+    FerretDB is an open-source proxy, converting the MongoDB wire protocol queries to SQL - using PostgreSQL as a
+    database engine.
   documentation: Taken from https://github.com/FerretDB/FerretDB

@@ -3,7 +3,9 @@ caproverOneClickApp:
   description: "redis-stack installs a Redis server with additional database capabilities and the RedisInsight."
   instructions:
     start: Install redis-stack and start using it.
-    end: To access the redis instance, you may need to open the port 6379. It is also advised to activate basic authentification.
+    end:
+      To access the redis instance, you may need to open the port 6379. It is also advised to activate basic
+      authentification.
   variables:
     - id: $$cap_app_version
       description: Version of redis-stack. See https://hub.docker.com/r/redis/redis-stack/tags for available versions.

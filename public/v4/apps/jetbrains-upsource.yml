@@ -1,13 +1,16 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "Whether you're looking for a code review tool, insight into your projects' history, or a place to collaborate or expand your developer expertise – Upsource has got you covered!."
+  description:
+    "Whether you're looking for a code review tool, insight into your projects' history, or a place to collaborate or
+    expand your developer expertise – Upsource has got you covered!."
   instructions:
     start: "Select the version you want to install."
     end: "Have fun!"
   variables:
     - id: $$cap_upsource_version
       label: "JetBrains upsource version"
-      description: "JetBrains upsource version. See https://hub.docker.com/r/jetbrains/upsource/tags for more information."
+      description:
+        "JetBrains upsource version. See https://hub.docker.com/r/jetbrains/upsource/tags for more information."
       defaultValue: "2022.1.1992"
   displayName: Jetbrains Upsource
   isOfficial: false

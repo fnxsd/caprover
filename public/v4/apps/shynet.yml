@@ -46,13 +46,14 @@ caproverOneClickApp:
     - id: $$cap_shynet_tz
       label: Shynet timezone
       defaultValue: "Europe/Brussels"
-      description: "The timezone of the admin panel. Affects how dates are displayed. see list of valid strings: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
+      description:
+        "The timezone of the admin panel. Affects how dates are displayed. see list of valid strings:
+        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
   instructions:
     start: >-
       Modern, privacy-friendly, and detailed web analytics that works without cookies or JS.
     end: >-
-      Aaaand you're done! 😄
-      Your service is available at http://$$cap_appname.$$cap_root_domain
+      Aaaand you're done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: Shynet
   isOfficial: true
   description: Modern, privacy-friendly, and cookie-free web analytics.

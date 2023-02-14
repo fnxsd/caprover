@@ -2,14 +2,18 @@
 
 captainVersion: 4
 caproverOneClickApp:
-  description: Ubooquity (https://vaemendis.net/ubooquity/) is a free, lightweight and easy-to-use home server for your comics and ebooks.
+  description:
+    Ubooquity (https://vaemendis.net/ubooquity/) is a free, lightweight and easy-to-use home server for your comics and
+    ebooks.
   displayName: Ubooquity
   variables:
     - id: $$cap_maxmem
       defaultValue: 1024
       alidRegex: /^([0-9])+$/
       label: maxmem
-      description: "If this quantity is too small, you might sometime saturate it with when performing memory intensive operations. That’s when you get java.lang.OutOfMemoryError: Java heap space errors."
+      description:
+        "If this quantity is too small, you might sometime saturate it with when performing memory intensive operations.
+        That’s when you get java.lang.OutOfMemoryError: Java heap space errors."
     - id: $$cap_timezone
       label: Timezone
       defaultValue: Europe/Berlin
@@ -20,7 +24,9 @@ caproverOneClickApp:
   instructions:
     start: Just a plain Docker Compose.
     end: >-
-      IMPORTANT Ubooquity has now been upgraded to version 2 and for existing v1.x users we recommend cleaning your appdata and reinstalling, due to changes in the application itself making the two versions essentially incompatible with each other. Also the admin page and library pages are now on separate ports as detailed below.
+      IMPORTANT Ubooquity has now been upgraded to version 2 and for existing v1.x users we recommend cleaning your
+      appdata and reinstalling, due to changes in the application itself making the two versions essentially
+      incompatible with each other. Also the admin page and library pages are now on separate ports as detailed below.
 
       Access the admin page at http://srv-captain--$$cap_appname:2203/ubooquity/admin and set a password.
 

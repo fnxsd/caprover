@@ -1,6 +1,8 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "StaticBackend is the performant and simple self-hosted backend API for your web and mobile apps. We've got your common backend building blocks covered. It's free and open source."
+  description:
+    "StaticBackend is the performant and simple self-hosted backend API for your web and mobile apps. We've got your
+    common backend building blocks covered. It's free and open source."
   instructions:
     start: Install staticbackend and start using it.
     end: Have fun!
@@ -56,7 +58,8 @@ services:
       APP_ENV: dev
       APP_SECRET: a-very-long-key-should-be-32long
       APP_URL: http://localhost:8099
-      DATABASE_URL: "host=srv-captain--$$cap_appname-db user=$$cap_db_user password=$$cap_db_pass dbname=$$cap_db_db sslmode=disable"
+      DATABASE_URL:
+        "host=srv-captain--$$cap_appname-db user=$$cap_db_user password=$$cap_db_pass dbname=$$cap_db_db sslmode=disable"
       DATA_STORE: pg
       JWT_SECRET: $$cap_app_jwt_secret
       MAIL_PROVIDER: dev

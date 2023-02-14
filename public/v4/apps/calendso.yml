@@ -87,7 +87,10 @@ caproverOneClickApp:
 
     - id: $$cap_google_api_credentials
       label: Google API Credentials
-      description: You can get this from the Google API Console (https://console.cloud.google.com/apis/dashboard). More details on this can be found below under the Obtaining the Google API Credentials section (https://github.com/calendso/calendso#Obtaining-the-Google-API-Credentials).
+      description:
+        You can get this from the Google API Console (https://console.cloud.google.com/apis/dashboard). More details on
+        this can be found below under the Obtaining the Google API Credentials section
+        (https://github.com/calendso/calendso#Obtaining-the-Google-API-Credentials).
 
     - id: $$cap_daily_api_key
       label: Daily API Key
@@ -102,7 +105,10 @@ caproverOneClickApp:
       label: Next Telemetry Disabled
       defaultValue: "1"
       validRegex: /^(0|1)$/
-      description: Next.js collects completely anonymous telemetry data about general usage. Participation in this anonymous program is optional, and you may opt-out if you'd not like to share any information. Setting to 0 enables the telemetry.
+      description:
+        Next.js collects completely anonymous telemetry data about general usage. Participation in this anonymous
+        program is optional, and you may opt-out if you'd not like to share any information. Setting to 0 enables the
+        telemetry.
 
     - id: $$cap_tls_reject_unauthorized
       label: Node TLS Reject Unauthorized
@@ -149,7 +155,9 @@ caproverOneClickApp:
     - id: $$cap_calendso_encryption_key
       label: Calendso Encryption Key
       defaultValue: $$cap_gen_random_hex(32)
-      description: Encryption key that will be used to encrypt CalDAV credentials, choose a random string, for example with `dd if=/dev/urandom bs=1K count=1 | md5sum`
+      description:
+        Encryption key that will be used to encrypt CalDAV credentials, choose a random string, for example with `dd
+        if=/dev/urandom bs=1K count=1 | md5sum`
       validRegex: /^([^\s^\/])+$/
 
     - id: $$cap_next_public_stripe_key
@@ -177,9 +185,8 @@ caproverOneClickApp:
     start: >-
       The open-source Calendly alternative.
     end: >-
-      Done! 😄
-      Your service is available at http://$$cap_appname.$$cap_root_domain
-      Make sure to enable https on your domain
+      Done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain Make sure to enable https on your
+      domain
   displayName: "(ARM)Calendso"
   isOfficial: false
   description: The open-source Calendly alternative. You are in control of your events and data.

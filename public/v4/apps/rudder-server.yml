@@ -1,12 +1,16 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "With RudderStack, you can easily collect and send customer data in real-time from your warehouses to the tools used by marketing, analytics, product, and customer success teams."
+  description:
+    "With RudderStack, you can easily collect and send customer data in real-time from your warehouses to the tools used
+    by marketing, analytics, product, and customer success teams."
   instructions:
     start: Install rudder-server and start using it.
     end: Have fun!
   variables:
     - id: $$cap_app_version
-      description: Version of rudder-server. See https://hub.docker.com/r/rudderlabs/rudder-server/tags?page=1&ordering=last_updated for available versions.
+      description:
+        Version of rudder-server. See
+        https://hub.docker.com/r/rudderlabs/rudder-server/tags?page=1&ordering=last_updated for available versions.
       defaultValue: latest
       label: App Version
     - id: $$cap_db_version

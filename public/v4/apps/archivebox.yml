@@ -7,7 +7,9 @@ caproverOneClickApp:
   # Title and description for one-click app gallery
 
   displayName: Archivebox
-  description: General, Bookmarks and archiving - Archivebox is an archiving solution that lets you save snapshots of content from the Web to your own server.
+  description:
+    General, Bookmarks and archiving - Archivebox is an archiving solution that lets you save snapshots of content from
+    the Web to your own server.
 
   # Only mark true if the docker-compose is the official one provided by the app developer, or if it's from a trusted source
 
@@ -37,16 +39,21 @@ caproverOneClickApp:
     # Success page
 
     end: >-
-      ✨✨ **Archivebox is deployed successfully**. 
-      Wait for a couple minutes for it to set up, then access at [http://$$cap_appname.$$cap_root_domain](http://$$cap_appname.$$cap_root_domain) and enjoy! 
-      IMPORTANT: It will take up to 2 minutes for Archivebox to be ready. Before that, you might see a 502 error page.
-      Before you start archiving you need to create an account by running the following commands from your server console: `su - archivebox` then `archivebox manage createsuperuser" into the `data` folder
-      To run those commands please follow official Caprover docs here: https://caprover.com/docs/troubleshooting.html#how-to-run-shell-inside-my-application-inside-container
-      Once the super admin was added you will be able to add other users via the web interface.
+      ✨✨ **Archivebox is deployed successfully**.  Wait for a couple minutes for it to set up, then access at
+      [http://$$cap_appname.$$cap_root_domain](http://$$cap_appname.$$cap_root_domain) and enjoy!  IMPORTANT: It will
+      take up to 2 minutes for Archivebox to be ready. Before that, you might see a 502 error page. Before you start
+      archiving you need to create an account by running the following commands from your server console: `su -
+      archivebox` then `archivebox manage createsuperuser" into the `data` folder To run those commands please follow
+      official Caprover docs here:
+      https://caprover.com/docs/troubleshooting.html#how-to-run-shell-inside-my-application-inside-container Once the
+      super admin was added you will be able to add other users via the web interface.
 
   # Link to app's documentation and Docker Hub
 
-  documentation: Access docs at https://github.com/ArchiveBox/ArchiveBox/wiki . Taken from https://docs.archivebox.io/en/latest/Docker.html and https://docs.archivebox.io/en/latest/Configuration.html?highlight=Configuration#configuration
+  documentation:
+    Access docs at https://github.com/ArchiveBox/ArchiveBox/wiki . Taken from
+    https://docs.archivebox.io/en/latest/Docker.html and
+    https://docs.archivebox.io/en/latest/Configuration.html?highlight=Configuration#configuration
 
   # Variables to be configured by the user
 

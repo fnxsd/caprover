@@ -35,7 +35,8 @@ services:
         - ENV KC_DB_URL=jdbc:postgresql://srv-captain--$$cap_appname-db/keycloak
         - ENV KC_DB_USERNAME=keycloak
         - ENV KC_DB_PASSWORD=$$cap_pg_pass
-        - ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--auto-build", "--db=postgres", "--hostname=$$cap_appname.$$cap_root_domain", "--proxy=edge"]
+        - ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--auto-build", "--db=postgres",
+          "--hostname=$$cap_appname.$$cap_root_domain", "--proxy=edge"]
 
 caproverOneClickApp:
   variables:
@@ -47,7 +48,9 @@ caproverOneClickApp:
     - id: $$cap_keycloak_version
       label: Keycloak Version
       defaultValue: 19.0
-      description: v19.0 current as of 2022-07-04.  Check out their Docker page for the valid tags https://quay.io/repository/keycloak/keycloak?tab=tags
+      description:
+        v19.0 current as of 2022-07-04.  Check out their Docker page for the valid tags
+        https://quay.io/repository/keycloak/keycloak?tab=tags
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_kc_health_enabled
       label: Enable Health Check
@@ -75,7 +78,8 @@ caproverOneClickApp:
       validRegex: /.{12,20}/
   instructions:
     start: >-
-      Keycloak is an Open Source Identity and Access Management solution for modern Applications and Services. It makes it easy to secure applications and services with little to no code.
+      Keycloak is an Open Source Identity and Access Management solution for modern Applications and Services. It makes
+      it easy to secure applications and services with little to no code.
 
       For documentation, see: https://www.keycloak.org/documentation.html
 
@@ -98,4 +102,5 @@ caproverOneClickApp:
   displayName: "Keycloak"
   isOfficial: false
   description: Keycloak is an open source identity and access management solution
-  documentation: Taken from https://github.com/keycloak/keycloak-containers/blob/main/docker-compose-examples/keycloak-postgres.yml
+  documentation:
+    Taken from https://github.com/keycloak/keycloak-containers/blob/main/docker-compose-examples/keycloak-postgres.yml

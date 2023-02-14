@@ -15,7 +15,8 @@ caproverOneClickApp:
     - id: $$cap_arango_version
       label: ArangoDB Version
       defaultValue: "3.10-nightly"
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/arangodb/arangodb-preview/tags
+      description:
+        Check out their Docker page for the valid tags https://hub.docker.com/r/arangodb/arangodb-preview/tags
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_db_pass
       defaultValue: $$cap_gen_random_hex(16)
@@ -23,7 +24,10 @@ caproverOneClickApp:
       description: "Specify your own root password."
       validRegex: /.{1,}/
   instructions:
-    start: ArangoDB is a multi-model, open-source database with flexible data models for documents, graphs, and key-values. Build high performance applications using a convenient SQL-like query language or JavaScript extensions. Use ACID transactions if you require them. Scale horizontally and vertically with a few mouse clicks.
+    start:
+      ArangoDB is a multi-model, open-source database with flexible data models for documents, graphs, and key-values.
+      Build high performance applications using a convenient SQL-like query language or JavaScript extensions. Use ACID
+      transactions if you require them. Scale horizontally and vertically with a few mouse clicks.
     end: ArangoDB is deployed and available as srv-captain--$$cap_appname-db:8529 to other apps.
   displayName: ArangoDB Preview
   isOfficial: false

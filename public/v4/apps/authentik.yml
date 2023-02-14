@@ -1,6 +1,8 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "authentik is an open-source Identity Provider focused on flexibility and versatility. You can use authentik in an existing environment to add support for new protocols."
+  description:
+    "authentik is an open-source Identity Provider focused on flexibility and versatility. You can use authentik in an
+    existing environment to add support for new protocols."
   instructions:
     start: Install authentik and start using it.
     end: Have fun!

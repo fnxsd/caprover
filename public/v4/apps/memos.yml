@@ -6,7 +6,9 @@ caproverOneClickApp:
     end: Have fun!
   variables:
     - id: $$cap_app_version
-      description: Version of memos. See https://hub.docker.com/r/neosmemo/memos/tags?page=1&ordering=last_updated for available versions.
+      description:
+        Version of memos. See https://hub.docker.com/r/neosmemo/memos/tags?page=1&ordering=last_updated for available
+        versions.
       defaultValue: 0.10.0
       label: App Version
   displayName: memos

@@ -43,8 +43,12 @@ caproverOneClickApp:
 
       Unmodified Postgres with some useful plugins. 
 
-      Our goal with this repo is not to modify Postgres, but to provide some of the most common extensions with a one-click install.
-    end: "Supabase (Postgres) is deployed and available as srv-captain--$$cap_appname-db:5432 to other apps. For example with NodeJS: 'const client = new Client({ user: 'cap_pg_user', host: 'srv-captain--$$cap_appname', database: 'cap_pg_db', password: '********', port: 5432})'"
+      Our goal with this repo is not to modify Postgres, but to provide some of the most common extensions with a
+      one-click install.
+    end:
+      "Supabase (Postgres) is deployed and available as srv-captain--$$cap_appname-db:5432 to other apps. For example
+      with NodeJS: 'const client = new Client({ user: 'cap_pg_user', host: 'srv-captain--$$cap_appname', database:
+      'cap_pg_db', password: '********', port: 5432})'"
   displayName: Supabase PostgreSQL
   isOfficial: false
   description: Supabase makes it easy to use Postgres.

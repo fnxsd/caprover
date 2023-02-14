@@ -1,6 +1,8 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "JetBrains Hub is a web-based application that provides user authorization, SSO, centralized information management, and dashboards for your activity."
+  description:
+    "JetBrains Hub is a web-based application that provides user authorization, SSO, centralized information management,
+    and dashboards for your activity."
   instructions:
     start: "Select the version you want to install."
     end: "Have fun!"

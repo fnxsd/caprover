@@ -1,16 +1,21 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it"
+  description:
+    "YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore
+    statistics about it"
   instructions:
     start: "Install Your Spotify"
     end: "Have fun"
   variables:
     - id: $$cap_appname_version
-      label: Version of the server app. See https://hub.docker.com/r/yooooomi/your_spotify_server/tags for availavle versions.
+      label:
+        Version of the server app. See https://hub.docker.com/r/yooooomi/your_spotify_server/tags for availavle
+        versions.
       defaultValue: latest
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_webapp_version
-      label: Version of the web app. See https://hub.docker.com/r/yooooomi/your_spotify_client/tags for availavle versions.
+      label:
+        Version of the web app. See https://hub.docker.com/r/yooooomi/your_spotify_client/tags for availavle versions.
       defaultValue: latest
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_spotify_client_id
@@ -28,7 +33,10 @@ caproverOneClickApp:
     - id: $$cap_cors
       label: CORS
       defaultValue: "all"
-      description: "CORS allows you to specify which domains can access the API. `all` allows all domains. Otherwise, enter a comma separated list of domains, e.g. http://srv-captain--$$cap_appname-web:3000,http://srv-captain--$$cap_appname-web:3001"
+      description:
+        "CORS allows you to specify which domains can access the API. `all` allows all domains. Otherwise, enter a comma
+        separated list of domains, e.g.
+        http://srv-captain--$$cap_appname-web:3000,http://srv-captain--$$cap_appname-web:3001"
   displayName: your-spotify
   isOfficial: false
   documentation: "https://github.com/Yooooomi/your_spotify"

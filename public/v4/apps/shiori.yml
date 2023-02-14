@@ -54,9 +54,8 @@ caproverOneClickApp:
     start: >
       This app stores its data in a SQLite database in a Docker volume.
 
-      Once deployed, this app will be accessible with a default username and
-      password. If this is a problem, you should deploy behind TLS and
-      basic-auth until you can log in and change them.
+      Once deployed, this app will be accessible with a default username and password. If this is a problem, you should
+      deploy behind TLS and basic-auth until you can log in and change them.
 
       username: shiori
 
@@ -64,9 +63,8 @@ caproverOneClickApp:
     end: >
       Shiori is up and running.
 
-      You can log in with the username and password below to  create and account
-      under `Settings`. Once you've created an account the default credentials
-      will be disabled.
+      You can log in with the username and password below to  create and account under `Settings`. Once you've created
+      an account the default credentials will be disabled.
 
       username: shiori
 

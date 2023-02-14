@@ -47,11 +47,13 @@ caproverOneClickApp:
     - id: $$cap_version
       label: ChangeDetection.io version
       defaultValue: 0.39.3
-      description: "Check out their docker page for the valid tags https://hub.docker.com/r/dgtlmoon/changedetection.io/tags"
+      description:
+        "Check out their docker page for the valid tags https://hub.docker.com/r/dgtlmoon/changedetection.io/tags"
     - id: $$cap_selenium_version
       label: Selenium version
       defaultValue: 3.141.59
-      description: "Check out their docker page for the valid tags https://hub.docker.com/r/selenium/standalone-chrome-debug/tags"
+      description:
+        "Check out their docker page for the valid tags https://hub.docker.com/r/selenium/standalone-chrome-debug/tags"
     - id: $$cap_playwright_version
       label: Playwright version
       defaultValue: 1-puppeteer-15.5.0-slim
@@ -78,8 +80,8 @@ caproverOneClickApp:
       description: "Whether to stealth when running the Selenium container"
   instructions:
     start: >-
-      Self-hosted website change detection monitoring. 
-      For more info visit https://github.com/dgtlmoon/changedetection.io
+      Self-hosted website change detection monitoring.  For more info visit
+      https://github.com/dgtlmoon/changedetection.io
     end: |-
       ChangeDetection.io has been successfully deployed!
       App is available as http://$$cap_appname.$$cap_root_domain.

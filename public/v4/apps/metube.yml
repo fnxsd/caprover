@@ -16,12 +16,13 @@ caproverOneClickApp:
       description: Checkout their docker page for the valid tags https://hub.docker.com/r/alexta69/metube/tags
   instructions:
     start: >-
-      Web GUI for youtube-dl with playlist support. Allows you to download videos from YouTube and dozens of other sites.
+      Web GUI for youtube-dl with playlist support. Allows you to download videos from YouTube and dozens of other
+      sites.
     end: >-
-      Aaaand you're done! 😄
-      Your service is available at http://$$cap_appname.$$cap_root_domain
+      Aaaand you're done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: "Metube"
   isOfficial: true
   baseUrl: https://github.com/alexta69/metube
-  description: Web GUI for youtube-dl with playlist support. Allows you to download videos from YouTube and dozens of other sites.
+  description:
+    Web GUI for youtube-dl with playlist support. Allows you to download videos from YouTube and dozens of other sites.
   documentation: Taken from https://hub.docker.com/r/alexta69/metube

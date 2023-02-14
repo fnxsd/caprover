@@ -39,7 +39,8 @@ caproverOneClickApp:
     - id: $$cap_app_version
       label: Docker Mailserver Version
       defaultValue: "11.3.1"
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/mailserver/docker-mailserver/tags
+      description:
+        Check out their Docker page for the valid tags https://hub.docker.com/r/mailserver/docker-mailserver/tags
     - id: $$cap_host
       label: Hostname
       defaultValue: mail
@@ -76,7 +77,7 @@ caproverOneClickApp:
       label: Timezone
       defaultValue: Europe/Berlin
       description: Timezone for Docker Mailserver
-    -
+
   instructions:
     start: |-
       Docker Mailserver

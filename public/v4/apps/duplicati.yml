@@ -17,11 +17,15 @@ caproverOneClickApp:
   variables:
     - id: $$cap_tz
       label: Timezone
-      description: Specify a timezone to use EG Europe/London, find yours at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      description:
+        Specify a timezone to use EG Europe/London, find yours at
+        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
       defaultValue: Europe/Brussels
     - id: $$cap_duplicati_version
       label: Version Tag
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/linuxserver/duplicati/tags or https://github.com/orgs/linuxserver/packages/container/package/duplicati
+      description:
+        Check out their Docker page for the valid tags https://hub.docker.com/r/linuxserver/duplicati/tags or
+        https://github.com/orgs/linuxserver/packages/container/package/duplicati
       defaultValue: "version-v2.0.6.3-2.0.6.3_beta_2021-06-17"
     - id: $$cap_puid
       label: User ID

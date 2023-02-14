@@ -1,6 +1,8 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "Thin Backend is a blazing fast, universal web app backend for making realtime single page apps. Delight your end-users with superior speed and lowest latency."
+  description:
+    "Thin Backend is a blazing fast, universal web app backend for making realtime single page apps. Delight your
+    end-users with superior speed and lowest latency."
   instructions:
     start: Install thin.dev and start using it.
     end: Have fun!

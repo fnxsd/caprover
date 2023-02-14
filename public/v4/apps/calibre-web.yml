@@ -30,12 +30,15 @@ caproverOneClickApp:
 
   instructions:
     start: >-
-      Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database. It is also possible to integrate google drive and edit metadata and your calibre library through the app itself.
+      Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an
+      existing Calibre database. It is also possible to integrate google drive and edit metadata and your calibre
+      library through the app itself.
     end: >-
-      Done! 😄
-      Your service is available at http://$$cap_appname.$$cap_root_domain
-      Default admin login: Username: admin Password: admin123
+      Done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain Default admin login: Username: admin
+      Password: admin123
   displayName: "(ARM)Calibre Web"
   isOfficial: false
-  description: Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.
+  description:
+    Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing
+    Calibre database.
   documentation: https://github.com/janeczku/calibre-web

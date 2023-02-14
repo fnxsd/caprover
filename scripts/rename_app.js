@@ -1,12 +1,6 @@
 #!/usr/bin/env node
-const path = require("path")
-const yaml = require("yaml")
-const fs = require("fs-extra")
-const PUBLIC = `public`
-const pathOfPublic = path.join(__dirname, "..", PUBLIC)
-const pathOfVersion = path.join(pathOfPublic, "v4")
-const pathOfApps = path.join(pathOfVersion, "apps")
-const pathOfLogos = path.join(pathOfVersion, "logos")
+
+const { PUBLIC, pathOfPublic, pathOfVersion, pathOfApps, pathOfLogos, fs, path, yaml, _ } = require("./shared")
 
 /**
  *

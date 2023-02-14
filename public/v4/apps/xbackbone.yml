@@ -58,10 +58,11 @@ caproverOneClickApp:
       description: Super secret database user password
   instructions:
     start: >-
-      XBackBone is a simple and lightweight PHP file manager that support the instant sharing tool ShareX and *NIX systems. It supports uploading and displaying images, GIF, video, code, formatted text, pdf, and file downloading and uploading. Also have a web UI with multi user management, media gallery and search support.
+      XBackBone is a simple and lightweight PHP file manager that support the instant sharing tool ShareX and *NIX
+      systems. It supports uploading and displaying images, GIF, video, code, formatted text, pdf, and file downloading
+      and uploading. Also have a web UI with multi user management, media gallery and search support.
     end: >-
-      Aaaand you're done! 😄
-      Your service is available at http://$$cap_appname.$$cap_root_domain
+      Aaaand you're done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: "XBackBone"
   isOfficial: true
   description: A lightweight file manager with full ShareX, Screencloud support and more.

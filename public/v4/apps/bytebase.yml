@@ -1,6 +1,8 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "Bytebase is an open-source database DevOps tool, it's the GitLab for managing databases throughout the application development lifecycle."
+  description:
+    "Bytebase is an open-source database DevOps tool, it's the GitLab for managing databases throughout the application
+    development lifecycle."
   instructions:
     start: Install bytebase and start using it.
     end: Have fun!

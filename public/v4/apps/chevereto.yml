@@ -34,7 +34,9 @@ caproverOneClickApp:
   variables:
     - id: $$cap_tz
       label: Timezone
-      description: This is the timezone for the application, find yours at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      description:
+        This is the timezone for the application, find yours at
+        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
       defaultValue: Europe/Brussels
     - id: $$cap_chevereto_version
       label: Version Tag
@@ -74,5 +76,7 @@ caproverOneClickApp:
       Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: Chevereto
   isOfficial: false
-  description: Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes.
+  description:
+    Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image
+    hosting website in just minutes.
   documentation: https://github.com/tanmng/docker-chevereto

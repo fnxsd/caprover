@@ -130,7 +130,8 @@ caproverOneClickApp:
        3) Enable Websocket in $$cap_appname. 
        4) Run database migration `npm run sequelize:migrate` within the $$cap_appname docker container.  
 
-      You can customize more settings by environmental variables described here: https://github.com/outline/outline/blob/0deecfac446c37545e0787b3d32062e608a950ab/.env.sample 
+      You can customize more settings by environmental variables described here:
+      https://github.com/outline/outline/blob/0deecfac446c37545e0787b3d32062e608a950ab/.env.sample 
 
       IMPORTANT: It will take up to 2 minutes for it to be ready. Before that, you might see a 502 error page.
   displayName: Outline

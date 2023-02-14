@@ -1,6 +1,8 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "Passbolt is a free and open source password manager that allows team members to store and share credentials securely."
+  description:
+    "Passbolt is a free and open source password manager that allows team members to store and share credentials
+    securely."
   instructions:
     start: Install passbolt and start using it.
     end: Please don't forget to enable https in your app's settings.

@@ -34,11 +34,11 @@ caproverOneClickApp:
       validRegex: /.{8,}/
   instructions:
     start: >-
-      MinIO is a High Performance Object Storage released under GNU Affero General Public License v3.0. 
-      It is API compatible with Amazon S3 cloud storage service.
+      MinIO is a High Performance Object Storage released under GNU Affero General Public License v3.0.  It is API
+      compatible with Amazon S3 cloud storage service.
     end: >-
-      Minio is deployed and available as $$cap_appname. 
-      **Important**: Make sure to enable HTTPS for both $$cap_appname and $$cap_appname-s3
+      Minio is deployed and available as $$cap_appname.  **Important**: Make sure to enable HTTPS for both $$cap_appname
+      and $$cap_appname-s3
   displayName: "MinIO Storage"
   isOfficial: false
   description: MinIO is a cloud storage server compatible with Amazon S3

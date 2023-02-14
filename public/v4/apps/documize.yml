@@ -1,6 +1,7 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "Documize Community is an open source modern, lightweight alternative to Confluence and other similar solutions."
+  description:
+    "Documize Community is an open source modern, lightweight alternative to Confluence and other similar solutions."
   instructions:
     start: Install documize and start using it.
     end: Have fun!
@@ -28,12 +29,16 @@ caproverOneClickApp:
 services:
   $$cap_appname:
     image: debian:latest
-    command: /bin/sh -c "apt-get -qq update && apt-get -qq install -y wget && wget https://community-downloads.s3.us-east-2.amazonaws.com/documize-community-plus-linux-amd64 && chmod 777 ./documize-community-plus-linux-amd64 && ./documize-community-plus-linux-amd64"
+    command:
+      /bin/sh -c "apt-get -qq update && apt-get -qq install -y wget && wget
+      https://community-downloads.s3.us-east-2.amazonaws.com/documize-community-plus-linux-amd64 && chmod 777
+      ./documize-community-plus-linux-amd64 && ./documize-community-plus-linux-amd64"
     volumes:
       - $$cap_appname-data:/data/documize
     environment:
       DOCUMIZEDBTYPE: postgresql
-      DOCUMIZEDB: host=$$cap_appname-db port=5432 user=postgres password=$$cap_db_pass dbname=$$cap_db_db sslmode=disable
+      DOCUMIZEDB:
+        host=$$cap_appname-db port=5432 user=postgres password=$$cap_db_pass dbname=$$cap_db_db sslmode=disable
       DOCUMIZESALT: $$cap_app_salt
       DOCUMIZEPORT: 5001
       DOCUMIZELOCATION: selfhost

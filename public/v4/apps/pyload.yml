@@ -16,7 +16,9 @@ caproverOneClickApp:
   variables:
     - id: $$cap_tz
       label: Timezone
-      description: This is the timezone for the application, find yours at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      description:
+        This is the timezone for the application, find yours at
+        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
       defaultValue: Europe/Brussels
     - id: $$cap_pyload_version
       label: pyLoad Version
@@ -41,12 +43,14 @@ caproverOneClickApp:
       defaultValue: "8000"
   instructions:
     start: >-
-      Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.
+      Free and Open Source download manager written in Python and designed to be extremely lightweight, easily
+      extensible and fully manageable via web.
     end: >-
-      Aaaand you're done! 😄
-      Your service is available at http://$$cap_appname.$$cap_root_domain
-      The default login is: username -> admin & password -> password
+      Aaaand you're done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain The default login is:
+      username -> admin & password -> password
   displayName: "pyLoad"
   isOfficial: true
-  description: Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.
+  description:
+    Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible
+    and fully manageable via web.
   documentation: Taken from https://pyload.net/

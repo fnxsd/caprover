@@ -73,7 +73,8 @@ caproverOneClickApp:
     - id: $$cap_allow_email_register
       label: Allow Email Register
       defaultValue: "false"
-      description: "Allow users to register with email. If set to false, users have to register with username and password."
+      description:
+        "Allow users to register with email. If set to false, users have to register with username and password."
       validRegex: /^true|false$/
     - id: $$cap_dropbox_clientid
       label: Dropbox Client ID
@@ -108,17 +109,20 @@ caproverOneClickApp:
     - id: $$cap_allow_anonymous
       label: Allow Anonymous
       defaultValue: "false"
-      description: "Allow anonymous users to create notes. If set to false, users have to register before they can create notes."
+      description:
+        "Allow anonymous users to create notes. If set to false, users have to register before they can create notes."
       validRegex: /^true|false$/
     - id: $$cap_allow_anonymous_edits
       label: Allow Anonymous Edits
       defaultValue: "false"
-      description: "Allow anonymous users to edit notes. If set to false, users have to register before they can edit notes."
+      description:
+        "Allow anonymous users to edit notes. If set to false, users have to register before they can edit notes."
       validRegex: /^true|false$/
     - id: $$cap_allow_free_url
       label: Allow Free URL
       defaultValue: "false"
-      description: "Allow users to create notes without a URL. If set to false, users have to set a URL for their notes."
+      description:
+        "Allow users to create notes without a URL. If set to false, users have to set a URL for their notes."
       validRegex: /^true|false$/
   instructions:
     start: |-

@@ -1,12 +1,16 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "Typesense offers a delightful, out-of-the-box search experience. From instant search, to autosuggest, to faceted search, Typesense has got you covered."
+  description:
+    "Typesense offers a delightful, out-of-the-box search experience. From instant search, to autosuggest, to faceted
+    search, Typesense has got you covered."
   instructions:
     start: Install typesense and start using it.
     end: Remember to make port 8108 accessible if you want to access the admin panel.
   variables:
     - id: $$cap_app_version
-      description: Version of typesense. See https://hub.docker.com/r/typesense/typesense/tags?page=1&ordering=last_updated for available versions.
+      description:
+        Version of typesense. See https://hub.docker.com/r/typesense/typesense/tags?page=1&ordering=last_updated for
+        available versions.
       defaultValue: 0.23.1
       label: App Version
     - id: $$cap_app_apikey

@@ -1,6 +1,7 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "Trilium Notes is a hierarchical note taking application with focus on building large personal knowledge bases."
+  description:
+    "Trilium Notes is a hierarchical note taking application with focus on building large personal knowledge bases."
   instructions:
     start: "Install Trilium Notes"
     end: "Happy using Trilium Notes!"

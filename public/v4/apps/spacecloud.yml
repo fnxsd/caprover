@@ -1,6 +1,8 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "An opensource kubernetes based serverless platform with built-in security and instant GraphQL APIs for any database and microservice"
+  description:
+    "An opensource kubernetes based serverless platform with built-in security and instant GraphQL APIs for any database
+    and microservice"
   instructions:
     start: Install spacecloud and start using it.
     end: Have fun!

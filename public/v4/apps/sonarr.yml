@@ -49,10 +49,13 @@ caproverOneClickApp:
 
       It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them.
 
-      It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
+      It can also be configured to automatically upgrade the quality of files already downloaded when a better quality
+      format becomes available.
     end: >-
       Sonarr is deployed and available as $$cap_appname.
   displayName: Sonarr
   isOfficial: true
-  description: Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them.
+  description:
+    Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new
+    episodes of your favorite shows and will grab, sort and rename them.
   documentation: Taken from https://hub.docker.com/r/linuxserver/sonarr.

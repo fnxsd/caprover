@@ -16,7 +16,9 @@ caproverOneClickApp:
   variables:
     - id: $$cap_tz
       label: Timezone
-      description: This is the timezone for the application, find yours at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      description:
+        This is the timezone for the application, find yours at
+        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
       defaultValue: Europe/Brussels
     - id: $$cap_sabnzbd_version
       label: SABnzbd Version
@@ -39,8 +41,7 @@ caproverOneClickApp:
     start: >-
       SABnzbd - The automated Usenet download tool.
     end: >-
-      Aaaand you're done! 😄
-      Your service is available at http://$$cap_appname.$$cap_root_domain
+      Aaaand you're done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: "SABnzbd"
   isOfficial: true
   description: SABnzbd - The automated Usenet download tool.

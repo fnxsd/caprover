@@ -24,7 +24,9 @@ services:
     caproverExtra:
       containerHttpPort: "8080"
 caproverOneClickApp:
-  description: "immudb is a database written in Go, but unlike other databases, it is immutable: history is preserved and can't be changed without clients noticing."
+  description:
+    "immudb is a database written in Go, but unlike other databases, it is immutable: history is preserved and can't be
+    changed without clients noticing."
   instructions:
     start: Install immudb and start using it.
     end: Have fun! Consider enabling https and open ports for 3322 (3322) and 5432 (5432).

@@ -15,7 +15,9 @@ services:
       DB_PORT: 5432
       ENABLE_PLUGINS: auth_internal,fever # auth_internal is required. Plugins enabled here will be enabled for all users as system plugins
       FEED_LOG_QUIET: true
-    command: sh -c 'sh /wait-for.sh srv-captain--$$cap_appname-postgres:5432 -- php /configure-db.php && exec s6-svscan /etc/s6/'
+    command:
+      sh -c 'sh /wait-for.sh srv-captain--$$cap_appname-postgres:5432 -- php /configure-db.php && exec s6-svscan
+      /etc/s6/'
     volumes:
       - $$cap_appname-icons:/var/www/feed-icons/
     caproverExtra:
@@ -72,5 +74,7 @@ caproverOneClickApp:
       set OpenCC API endpoint to `$$cap_appname-opencc:3000` on TTRSS plugin setting page
   displayName: PrivateBin
   isOfficial: false
-  description: A minimalist, open source online pastebin where the server has zero knowledge of pasted data. Data is encrypted/decrypted in the browser using 256 bits AES.
+  description:
+    A minimalist, open source online pastebin where the server has zero knowledge of pasted data. Data is
+    encrypted/decrypted in the browser using 256 bits AES.
   documentation: See https://github.com/PrivateBin/docker-nginx-fpm-alpine

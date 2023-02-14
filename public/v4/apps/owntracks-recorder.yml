@@ -1,6 +1,8 @@
 captainVersion: "4"
 caproverOneClickApp:
-  description: "The OwnTracks Recorder is a lightweight program for storing and accessing location data published via MQTT (or HTTP) by the OwnTracks apps."
+  description:
+    "The OwnTracks Recorder is a lightweight program for storing and accessing location data published via MQTT (or
+    HTTP) by the OwnTracks apps."
   instructions:
     start: "Install the backend service"
     end: "Have fun"
@@ -16,13 +18,17 @@ caproverOneClickApp:
     - id: $$cap_timezone
       label: Timezone
       defaultValue: "UTC"
-      description: "Set the time zone here. See https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-TIME_ZONE for details on how to set it."
+      description:
+        "Set the time zone here. See https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-TIME_ZONE for
+        details on how to set it."
     - id: $$cap_geokey
       description: API key for reverse-geo lookups
       label: Geo API Key
     - id: $$cap_topics
       label: Topics
-      description: String containing a space-separated list of topics to subscribe to for MQTT (overridden by command-line arguments)
+      description:
+        String containing a space-separated list of topics to subscribe to for MQTT (overridden by command-line
+        arguments)
 
   displayName: owntracks-recorder
   isOfficial: false

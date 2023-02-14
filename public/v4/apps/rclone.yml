@@ -23,7 +23,9 @@ caproverOneClickApp:
 
   displayName: rclone
   isOfficial: false
-  description: 'Rclone ("rsync for cloud storage") is a command-line program to sync files and directories to and from different cloud storage providers.'
+  description:
+    'Rclone ("rsync for cloud storage") is a command-line program to sync files and directories to and from different
+    cloud storage providers.'
   documentation: Taken from https://github.com/rclone/rclone
 services:
   $$cap_appname:
@@ -40,4 +42,5 @@ services:
       dockerfileLines:
         - FROM rclone/rclone:$$cap_app_version
         - EXPOSE 5572
-        - CMD ["rcd", "--rc-web-gui", "--rc-addr", ":5572", "--rc-user", "$$cap_username", "--rc-pass", "$$cap_password"]
+        - CMD ["rcd", "--rc-web-gui", "--rc-addr", ":5572", "--rc-user", "$$cap_username", "--rc-pass",
+          "$$cap_password"]

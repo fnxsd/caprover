@@ -7,7 +7,8 @@ caproverOneClickApp:
   variables:
     - id: $$cap_youtrack_version
       label: "JetBrains youtrack version"
-      description: "JetBrains youtrack version. See https://hub.docker.com/r/jetbrains/youtrack/tags for more information."
+      description:
+        "JetBrains youtrack version. See https://hub.docker.com/r/jetbrains/youtrack/tags for more information."
       defaultValue: "2022.1.46592"
   displayName: Jetbrains Youtrack
   isOfficial: false

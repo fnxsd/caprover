@@ -16,7 +16,9 @@ caproverOneClickApp:
   variables:
     - id: $$cap_tz
       label: Timezone
-      description: This is the timezone for the application, find yours at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      description:
+        This is the timezone for the application, find yours at
+        https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
       defaultValue: Europe/Brussels
     - id: $$cap_jackett_version
       label: Version Tag
@@ -35,7 +37,8 @@ caproverOneClickApp:
     - id: $$auto_update
       label: Auto update Jackett
       defaultValue: "true"
-      description: Allow Jackett to update inside of the container (currently recommended by Jackett and enabled by default)
+      description:
+        Allow Jackett to update inside of the container (currently recommended by Jackett and enabled by default)
       validRegex: /.{1,}/
     - id: $$path_to_dl
       label: Path to torrent blackhole.

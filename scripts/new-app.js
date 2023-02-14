@@ -1,48 +1,38 @@
 #!/usr/bin/env node
-const path = require("path")
-const yaml = require("yaml")
-const fs = require("fs-extra")
-const PUBLIC = `public`
-const pathOfPublic = path.join(__dirname, "..", PUBLIC)
-const pathOfVersion = path.join(pathOfPublic, "v4")
-const pathOfApps = path.join(pathOfVersion, "apps")
-const pathOfLogos = path.join(pathOfVersion, "logos")
 
+const {
+  PUBLIC,
+  pathOfPublic,
+  pathOfVersion,
+  pathOfApps,
+  pathOfLogos,
+  fs,
+  path,
+  yaml,
+  _,
+  caproverTemplate
+} = require("./shared")
+
+/**
+ * Ensures that a string ends with a given suffix
+ * @param {string} str
+ * @param {string} suffix
+ * @returns {string}
+ */
+function endsureEndsWith(str, suffix) {
+  return str.endsWith(suffix) ? str : str + suffix
+}
+
+/**
+ * Creates a new caprover app, generating a basic template and placeholder logo.
+ * @param {string} name
+ * @returns {string}
+ */
 function createApp(name) {
-  const content = {
-    captainVersion: "4",
-    caproverOneClickApp: {
-      description: "",
-      instructions: {
-        start: `Install ${name} and start using it.`,
-        end: "Have fun!"
-      },
-      variables: [
-        {
-          id: "$$cap_app_version",
-          description: `Version of ${name}`,
-          defaultValue: "latest",
-          label: "App Version"
-        }
-      ],
-      displayName: name,
-      isOfficial: false,
-      documentation: ""
-    },
-    services: {
-      $$cap_appname: {
-        image: `${name}:$$cap_app_version`,
-        volumes: ["$$cap_appname-data:" + `/data/${name}`],
-        environment: [],
-        caproverExtra: {
-          containerHttpPort: "3000"
-        }
-      }
-    }
-  }
+  const content = caproverTemplate({ name })
   const contentString = yaml.stringify(content)
-  const fileName = name + ".yml"
-  const logoName = name + ".png"
+  const fileName = endsureEndsWith(name, ".yml")
+  const logoName = endsureEndsWith(name, ".png")
   const filePath = path.join(pathOfApps, fileName)
   fs.writeFileSync(filePath, contentString)
   fs.createFileSync(path.join(pathOfLogos, logoName))

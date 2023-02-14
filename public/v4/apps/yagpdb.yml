@@ -81,8 +81,7 @@ caproverOneClickApp:
 
       This is the best opensource discord bot ever made!
     end: >-
-      Aaaand you're done! 😄
-      Your service is available at http://$$cap_appname.$$cap_root_domain
+      Aaaand you're done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: Yagpdb
   isOfficial: false
   description: Yet another general purpose discord bot
