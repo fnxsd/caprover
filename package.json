@@ -46,7 +46,7 @@
     "lodash": "^4.17.21",
     "mkdirp": "2.1.6",
     "rimraf": "4.4.1",
-    "semver": "^7.3.8",
+    "semver": "^7.6.0",
     "shell-quote": "^1.8.1",
     "yaml": "^2.2.1",
     "yargs": "17.7.1"
@@ -59,7 +59,7 @@
     "@types/node": "^18.13.0",
     "@types/prettier": "^2.7.2",
     "@types/rimraf": "3.0.2",
-    "@types/semver": "^7.3.13",
+    "@types/semver": "^7.5.8",
     "@types/yaml": "^1.9.7",
     "@types/yargs": "17.0.24",
     "caprover": "^2.2.3",
