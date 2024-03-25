@@ -18,7 +18,7 @@ caproverOneClickApp:
     - id: $$cap_app_password
       label: Database Password
       defaultValue: clickhouse
-    - id: $$cap_app_db
+    - id: $$cap_app_db+
       defaultValue: clickhouse
       label: Database name
   displayName: clickhouse

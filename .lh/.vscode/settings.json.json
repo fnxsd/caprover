@@ -1,0 +1,18 @@
+{
+    "sourceFile": ".vscode/settings.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1703064101267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1703064101267,
+            "name": "Commit-0",
+            "content": "{\n    \"peacock.color\": \"#a654d9\",\n    \"files.exclude\": {\n        \"**/.git\": true,\n        \"**/.svn\": true,\n        \"**/.hg\": true,\n        \"**/CVS\": true,\n        \"**/.DS_Store\": true,\n        \"**/Thumbs.db\": true,\n        \"dist/\": true,\n        \"one-click-apps.code-workspace\": true\n    },\n    \"yaml.schemas\": {\n        \"file:///home/dev/.vscode/extensions/qovery.vscode-qovery-extension-0.1.2/out/domain/QoverySpec.json\": \"*.qovery.y*ml\",\n        \"https://json.schemastore.org/github-workflow.json\": \"file:///home/dev/source/caprover/one-click-apps/.github/workflows/deploy.yml\",\n        \"https://json.schemastore.org/yamllint.json\": \"file:///home/dev/source/caprover/one-click-apps/scripts/deploy.yml\"\n    },\n    \"workbench.colorCustomizations\": {\n        \"activityBar.activeBackground\": \"#bc7ee2\",\n        \"activityBar.activeBorder\": \"#edd6b1\",\n        \"activityBar.background\": \"#bc7ee2\",\n        \"activityBar.foreground\": \"#15202b\",\n        \"activityBar.inactiveForeground\": \"#15202b99\",\n        \"activityBarBadge.background\": \"#edd6b1\",\n        \"activityBarBadge.foreground\": \"#15202b\",\n        \"sash.hoverBorder\": \"#bc7ee2\",\n        \"statusBarItem.hoverBackground\": \"#bc7ee2\",\n        \"statusBarItem.remoteBackground\": \"#a654d9\",\n        \"statusBarItem.remoteForeground\": \"#e7e7e7\",\n        \"titleBar.activeBackground\": \"#a654d9\",\n        \"titleBar.activeForeground\": \"#e7e7e7\",\n        \"titleBar.inactiveBackground\": \"#a654d999\",\n        \"titleBar.inactiveForeground\": \"#e7e7e799\",\n        \"commandCenter.border\": \"#e7e7e799\",\n        \"statusBar.background\": \"#a654d9\",\n        \"statusBar.foreground\": \"#e7e7e7\"\n    },\n    \"peacock.remoteColor\": \"#487857\",\n    \"editor.tokenColorCustomizations\": {\n        \"textMateRules\": [],\n        \"comments\": \"#FF0000\"\n    }\n}"
+        }
+    ]
+}

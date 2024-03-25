@@ -1,15 +1,15 @@
-# @format
-
 captainVersion: 4
 services:
-  # Calibre-web
   $$cap_appname:
     image: lscr.io/linuxserver/calibre-web:$$cap_app_version
     restart: always
     environment:
-      APP_URL: http://$$cap_appname.$$cap_root_domain
+      APP_URL: https://$$cap_appname.$$cap_root_domain
       TZ: $$cap_timezone
       OAUTHLIB_RELAX_TOKEN_SCOPE: 1
+      DOCKER_MODS: $$cap_docker_mods
+      PUID: $$cap_puid
+      PGID: $$cap_pgid
     volumes:
       - $$cap_appname-config:/config
       - $$cap_appname-books:/books
@@ -20,23 +20,36 @@ caproverOneClickApp:
   variables:
     - id: $$cap_app_version
       label: Calibre-web
-      defaultValue: "2021.10.24"
+      defaultValue: "0.6.21"
       description: Check out their docker page for the valid tags https://hub.docker.com/r/linuxserver/calibre-web/tags
-
+    - id: $$cap_docker_mods
+      label: Docker Mods
+      defaultValue: "linuxserver/mods:universal-calibre"
+      description: "Pipe separated list of docker mods. See https://docs.linuxserver.io/general/container-customization/?h=docker+mods#docker-mods"
     - id: $$cap_timezone
       label: Timezone
       defaultValue: "Europe/Berlin"
       description: "See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for list of timezones."
-
+    - id: $$cap_puid
+      label: PUID
+      defaultValue: "1000"
+      description: "See https://docs.linuxserver.io/general/understanding-puid-and-pgid for more info."
+    - id: $$cap_pgid
+      label: PGID
+      defaultValue: "1000"
+      description: "See https://docs.linuxserver.io/general/understanding-puid-and-pgid for more info."
   instructions:
     start: >-
       Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an
       existing Calibre database. It is also possible to integrate google drive and edit metadata and your calibre
       library through the app itself.
     end: >-
-      Done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain Default admin login: Username: admin
-      Password: admin123
-  displayName: "(ARM)Calibre Web"
+      Done! 😄 Please enable HTTPS for your app by going to the app's overview page and clicking on the "Enable HTTPS".
+      Your service is then available at https://$$cap_appname.$$cap_root_domain.
+      Default credentials: 
+        - Username: admin
+        - Password: admin123
+  displayName: "Calibre Web (Customized)"
   isOfficial: false
   description:
     Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing
