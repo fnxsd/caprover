@@ -71,6 +71,6 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.5.0",
     "typescript": "5.0.4",
-    "typesync": "0.10.0"
+    "typesync": "0.12.1"
   }
 }
