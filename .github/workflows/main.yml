@@ -42,9 +42,9 @@ jobs:
       - name: Get current date # get the date of the build
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
-      - uses: eikendev/gotify-action@master
-        with:
-          gotify_api_base: ${{ secrets.GOTIFY_BASE_URL }}
-          gotify_app_token: ${{ secrets.GOTIFY_API_KEY }}
-          notification_title: ${{ github.repository_owner }} pushed to ${{ github.repository }}
-          notification_message: ${{ github.ref }} pushed to ${{ github.repository }} on ${{ steps.date.outputs.date }}
+      # - uses: eikendev/gotify-action@master
+      #   with:
+      #     gotify_api_base: ${{ secrets.GOTIFY_BASE_URL }}
+      #     gotify_app_token: ${{ secrets.GOTIFY_API_KEY }}
+      #     notification_title: ${{ github.repository_owner }} pushed to ${{ github.repository }}
+      #     notification_message: ${{ github.ref }} pushed to ${{ github.repository }} on ${{ steps.date.outputs.date }}

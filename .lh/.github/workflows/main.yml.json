@@ -1,0 +1,18 @@
+{
+    "sourceFile": ".github/workflows/main.yml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1711568732218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1711568732218,
+            "name": "Commit-0",
+            "content": "name: Validate, Build & Deploy\non:\n  push:\n\njobs:\n  validate-build-deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout 🛎️\n        uses: actions/checkout@v2\n\n      - name: Restore Cache ♻\n        uses: actions/cache@v2\n        with:\n          path: ~/.pnpm-store\n          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}\n          restore-keys: |\n            ${{ runner.os }}-\n\n      - name: Setup 🔧\n        uses: pnpm/action-setup@v2.0.1\n        with:\n          version: 6.26.1\n          run_install: true\n\n      - name: Validate 🔎\n        run: pnpm run validate_apps\n\n      - name: Build 🏗\n        if: ${{ github.event_name == 'push' }}\n        run: pnpm run build\n\n      - name: Deploy 🚀\n        if: ${{ github.event_name == 'push' }}\n        uses: JamesIves/github-pages-deploy-action@4.1.5\n        with:\n          branch: gh-pages\n          folder: dist\n          git-config-name: hharzer\n          git-config-email: hharzer@live.com\n          clean: true\n      - name: Get current date # get the date of the build\n        id: date\n        run: echo \"::set-output name=date::$(date +'%Y-%m-%d--%M-%S')\"\n      # - uses: eikendev/gotify-action@master\n      #   with:\n      #     gotify_api_base: ${{ secrets.GOTIFY_BASE_URL }}\n      #     gotify_app_token: ${{ secrets.GOTIFY_API_KEY }}\n      #     notification_title: ${{ github.repository_owner }} pushed to ${{ github.repository }}\n      #     notification_message: ${{ github.ref }} pushed to ${{ github.repository }} on ${{ steps.date.outputs.date }}\n"
+        }
+    ]
+}
