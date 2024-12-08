@@ -741,10 +741,10 @@ camelcase@^7.0.0:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-7.0.1.tgz#f02e50af9fd7782bc8b88a3558c32fd3a388f048"
   integrity sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==
 
-caprover@^2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/caprover/-/caprover-2.2.3.tgz#5ba00c94c27ea64b724ca4f19b09bdec95031f7f"
-  integrity sha512-7H9d6iG7fOWHRf4jNGUqCooNvQpnMARm56rU1rj6Qt/mLrG3f0OOdbSurgD0K1s+fx5qXV2qeTyQztd0T6TmiQ==
+caprover@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/caprover/-/caprover-2.3.0.tgz#292eb912c0329ea3747c1264e6674f759b17b1d4"
+  integrity sha512-2+PGys8NNtX37WdtvaRGADtO+WVNKizn6jCT2Brvt6aHI9gwMT00jaDFbcREgbTQlsDJlnpkyq/FNf8eKnz33Q==
   dependencies:
     chalk "^2.4.2"
     command-exists "^1.2.8"
