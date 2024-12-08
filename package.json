@@ -49,7 +49,7 @@
     "semver": "^7.3.8",
     "shell-quote": "^1.8.1",
     "yaml": "^2.2.1",
-    "yargs": "17.7.1"
+    "yargs": "17.7.2"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.1",
@@ -61,7 +61,7 @@
     "@types/rimraf": "3.0.2",
     "@types/semver": "^7.3.13",
     "@types/yaml": "^1.9.7",
-    "@types/yargs": "17.0.24",
+    "@types/yargs": "17.0.32",
     "caprover": "^2.2.3",
     "globby": "^13",
     "npm-check-updates": "16.10.7",
